@@ -1037,6 +1037,167 @@
         text-align: center;
       }
     }
+    /* TERMS & KETENTUAN MODAL STYLES */
+    .terms-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    html[data-theme="light"] .terms-modal-overlay {
+      background: rgba(248, 250, 252, 0.85);
+    }
+
+    .terms-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .terms-modal-container {
+      width: 100%;
+      max-width: 900px;
+      max-height: 90vh;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: translateY(20px);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .terms-modal-overlay.active .terms-modal-container {
+      transform: translateY(0);
+    }
+
+    .terms-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: var(--glass-bg);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .terms-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .terms-nav-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .terms-modal-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0;
+    }
+
+    .terms-close-icon-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 6px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .terms-close-icon-btn:hover {
+      color: var(--text-main);
+      background: var(--bg-card-hover);
+    }
+
+    .terms-modal-body {
+      padding: 32px 28px;
+      overflow-y: auto;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .terms-article h2 {
+      font-size: 1.5rem;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .terms-meta {
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .terms-intro {
+      font-size: 1rem;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .terms-divider {
+      border: none;
+      border-top: 1px solid var(--border-color);
+      margin: 24px 0;
+    }
+
+    .terms-article h3 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .terms-article p {
+      margin-bottom: 12px;
+    }
+
+    .terms-article ul, .terms-article ol {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    .terms-article li {
+      margin-bottom: 8px;
+    }
+
+    .terms-modal-footer {
+      padding: 16px 24px;
+      background: var(--glass-bg);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
@@ -1599,7 +1760,7 @@
             <li><a href="#tentang">Tentang Kami</a></li>
             <li><a href="#harga">Pilihan Paket</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="#">Syarat & Ketentuan</a></li>
+            <li><a href="#syarat">Syarat & Ketentuan</a></li>
             <li><a href="#">Kebijakan Privasi</a></li>
           </ul>
         </div>
@@ -1612,7 +1773,170 @@
     </div>
   </footer>
 
-  <!-- THEME SWITCHER SCRIPT -->
+  <!-- SYARAT & KETENTUAN MODAL / OVERLAY -->
+  <div id="terms-modal" class="terms-modal-overlay" aria-hidden="true">
+    <div class="terms-modal-container">
+      <!-- HEADER TOOLBAR -->
+      <div class="terms-modal-header">
+        <button id="terms-home-btn" class="terms-nav-btn" aria-label="Kembali ke Beranda" title="Kembali ke Beranda">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Beranda</span>
+        </button>
+
+        <h3 class="terms-modal-title">Syarat & Ketentuan</h3>
+
+        <button id="terms-top-close-btn" class="terms-close-icon-btn" aria-label="Tutup" title="Tutup">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- BODY CONTENT -->
+      <div class="terms-modal-body">
+        <article class="terms-article">
+          <h2>Syarat dan Ketentuan Penggunaan KantongAjaib.id</h2>
+          <div class="terms-meta">Terakhir diperbarui: 4 Agustus 2026</div>
+
+          <p class="terms-intro">
+            Selamat datang di <strong>KantongAjaib.id</strong> ("KantongAjaib", "Kami"). Syarat dan Ketentuan ini ("S&K") mengatur akses dan penggunaan Anda ("Pengguna", "Anda") atas aplikasi dan situs web KantongAjaib.id, termasuk seluruh fitur, konten, dan layanan yang tersedia di dalamnya.
+          </p>
+          <p class="terms-intro">
+            Dengan mendaftar, mengakses, atau menggunakan KantongAjaib, Anda menyatakan telah membaca, memahami, dan menyetujui untuk terikat oleh S&K ini beserta Kebijakan Privasi kami. Jika Anda tidak setuju dengan salah satu ketentuan di bawah ini, mohon untuk tidak menggunakan layanan KantongAjaib.
+          </p>
+
+          <hr class="terms-divider">
+
+          <h3>1. Definisi Layanan</h3>
+          <p>KantongAjaib adalah platform pencatatan keuangan sederhana yang menyediakan fitur, antara lain:</p>
+          <ul>
+            <li>Pencatatan transaksi uang masuk dan uang keluar;</li>
+            <li>Buku Kas ("Kantongku") untuk memisahkan pos-pos keuangan (Kantong Utama, Tabungan, Kantong Modal, dan lainnya);</li>
+            <li>Pencatatan utang piutang;</li>
+            <li>Pembuatan dokumen digital berupa e-Invoice, e-Quotation, dan e-Receipt;</li>
+            <li>Fitur Ingetin, yaitu pengingat otomatis melalui WhatsApp untuk jatuh tempo utang piutang, jadwal pencatatan kas, maupun agenda pribadi yang Anda tambahkan sendiri;</li>
+            <li>Fitur lain yang dapat ditambahkan, diubah, atau dihentikan oleh Kami dari waktu ke waktu.</li>
+          </ul>
+          <p>KantongAjaib ditujukan untuk membantu pencatatan keuangan pribadi, keluarga, organisasi/komunitas, DKM masjid, maupun usaha mikro, dan bukan merupakan layanan perbankan, lembaga keuangan, atau penasihat keuangan berlisensi.</p>
+
+          <h3>2. Kelayakan dan Pendaftaran Akun</h3>
+          <ol>
+            <li>Anda harus berusia minimal 17 tahun atau telah cakap secara hukum untuk mengikatkan diri dalam suatu perjanjian menurut hukum yang berlaku di Indonesia, atau menggunakan layanan ini dengan izin dan pengawasan orang tua/wali.</li>
+            <li>Untuk menggunakan sebagian besar fitur, Anda wajib membuat akun dengan memberikan data yang benar, lengkap, dan terkini (misalnya nama, alamat email, dan/atau nomor WhatsApp).</li>
+            <li>Anda bertanggung jawab penuh atas kerahasiaan kata sandi (password) dan seluruh aktivitas yang terjadi melalui akun Anda.</li>
+            <li>Segera beri tahu Kami apabila terjadi dugaan penggunaan akun tanpa izin atau pelanggaran keamanan lainnya.</li>
+            <li>Satu akun hanya diperuntukkan bagi satu pengguna/entitas, kecuali diatur lain dalam paket berlangganan tertentu.</li>
+          </ol>
+
+          <h3>3. Paket Layanan dan Biaya</h3>
+          <ol>
+            <li>KantongAjaib menyediakan paket Kantong Gratis dan paket Kantong Pintar (berbayar), dengan ketentuan fitur dan batasan sebagaimana dijelaskan pada halaman Harga di situs kami.</li>
+            <li>Paket Kantong Gratis memiliki batasan, antara lain jumlah buku kas, jumlah transaksi per bulan, jumlah kontak tersimpan, jumlah dokumen digital (e-Invoice/e-Quotation/e-Receipt) per bulan, dan tidak mencakup fitur Ingetin WhatsApp.</li>
+            <li>Akun pada paket Kantong Gratis yang tidak aktif selama 1 (satu) bulan berturut-turut berpotensi dihapus oleh sistem. Akun pada paket Kantong Pintar yang tidak aktif selama 1 (satu) tahun berturut-turut berpotensi dihapus oleh sistem. "Tidak aktif" berarti tidak ada aktivitas login maupun transaksi dalam jangka waktu tersebut.</li>
+            <li>Biaya paket berbayar, metode pembayaran, dan periode tagihan akan ditampilkan secara jelas pada saat Anda memilih atau memperbarui paket. Nominal harga dapat berubah sewaktu-waktu sesuai kebijakan Kami, dan perubahan akan diinformasikan sebelum berlaku efektif bagi pelanggan yang sudah berlangganan.</li>
+            <li>Kecuali dinyatakan lain, biaya berlangganan yang telah dibayarkan tidak dapat dikembalikan (non-refundable), termasuk apabila Anda berhenti menggunakan layanan sebelum masa berlangganan berakhir.</li>
+            <li>Kegagalan pembayaran dapat mengakibatkan penurunan otomatis ke paket Kantong Gratis atau pembatasan akses terhadap fitur berbayar.</li>
+          </ol>
+
+          <h3>4. Fitur e-Invoice, e-Quotation, dan e-Receipt</h3>
+          <ol>
+            <li>Dokumen digital (e-Invoice, e-Quotation, e-Receipt) yang dibuat melalui KantongAjaib disusun berdasarkan data yang Anda masukkan sendiri.</li>
+            <li>Anda bertanggung jawab penuh atas kebenaran, keakuratan, dan keabsahan informasi yang tercantum dalam dokumen tersebut, termasuk namun tidak terbatas pada nominal, identitas pihak, dan keterangan transaksi.</li>
+            <li>KantongAjaib hanya menyediakan sarana pembuatan dan pengiriman dokumen, dan tidak bertindak sebagai pihak dalam transaksi antara Anda dan pelanggan/mitra Anda, serta tidak bertanggung jawab atas sengketa yang timbul dari transaksi tersebut.</li>
+          </ol>
+
+          <h3>5. Fitur Ingetin (Pengingat WhatsApp)</h3>
+          <ol>
+            <li>Fitur Ingetin mengirimkan notifikasi pengingat melalui WhatsApp berdasarkan jadwal, agenda, atau data jatuh tempo yang Anda atur sendiri di dalam aplikasi.</li>
+            <li>Dengan mengaktifkan fitur ini, Anda memberikan izin kepada Kami untuk mengirimkan pesan ke nomor WhatsApp yang Anda daftarkan sesuai kebutuhan fungsi pengingat.</li>
+            <li>Pengiriman pesan bergantung pada ketersediaan dan kestabilan layanan pihak ketiga (WhatsApp/penyedia gateway pesan). Kami tidak menjamin pesan pengingat akan selalu terkirim tepat waktu atau tanpa gangguan, dan tidak bertanggung jawab atas kerugian yang timbul akibat keterlambatan atau kegagalan pengiriman pesan yang berada di luar kendali wajar Kami.</li>
+            <li>Anda dapat mengubah, menonaktifkan, atau mengatur ulang (snooze) pengingat kapan saja melalui pengaturan aplikasi.</li>
+          </ol>
+
+          <h3>6. Kewajiban dan Batasan Penggunaan</h3>
+          <p>Sebagai Pengguna, Anda setuju untuk:</p>
+          <ol>
+            <li>Menggunakan KantongAjaib hanya untuk tujuan pencatatan keuangan yang sah dan sesuai dengan hukum yang berlaku di Indonesia;</li>
+            <li>Tidak menggunakan layanan untuk aktivitas pencucian uang, penipuan, penggelapan pajak, atau tindak pidana lainnya;</li>
+            <li>Tidak mencoba meretas, membongkar (reverse-engineer), mengganggu sistem, atau mengakses data pengguna lain tanpa izin;</li>
+            <li>Tidak menyalahgunakan fitur e-Invoice/e-Quotation/e-Receipt untuk membuat dokumen palsu atau menyesatkan;</li>
+            <li>Tidak mengirim spam atau menyalahgunakan fitur Ingetin untuk mengirimkan pesan kepada pihak yang tidak menyetujuinya;</li>
+            <li>Bertanggung jawab penuh atas keakuratan seluruh data keuangan yang Anda masukkan, karena KantongAjaib bersifat sebagai alat bantu pencatatan, bukan penjamin kebenaran data.</li>
+          </ol>
+          <p>Kami berhak menangguhkan atau menghentikan akun yang terbukti melanggar ketentuan di atas, tanpa mengurangi hak Kami untuk menempuh upaya hukum lain yang diperlukan.</p>
+
+          <h3>7. Data dan Privasi</h3>
+          <ol>
+            <li>Kami memahami bahwa data keuangan bersifat sensitif dan berkomitmen menjaga keamanan serta kerahasiaannya sesuai dengan Kebijakan Privasi kami dan peraturan perlindungan data pribadi yang berlaku di Indonesia (termasuk Undang-Undang Perlindungan Data Pribadi).</li>
+            <li>Anda tetap merupakan pemilik data yang Anda masukkan ke dalam aplikasi. Kami menggunakan data tersebut semata-mata untuk menjalankan dan meningkatkan layanan, kecuali disebutkan lain dalam Kebijakan Privasi.</li>
+            <li>Anda bertanggung jawab untuk tidak memasukkan data pihak ketiga (misalnya data pelanggan atau anggota komunitas) tanpa dasar yang sah untuk melakukannya.</li>
+            <li>Rincian lebih lanjut mengenai pengumpulan, penggunaan, dan perlindungan data diatur dalam Kebijakan Privasi kami, yang merupakan satu kesatuan dengan S&K ini.</li>
+          </ol>
+
+          <h3>8. Kekayaan Intelektual</h3>
+          <ol>
+            <li>Seluruh hak atas nama, logo, desain antarmuka, kode sumber, dan konten yang terdapat pada KantongAjaib merupakan milik Kami atau pemberi lisensi Kami, dan dilindungi oleh peraturan perundang-undangan tentang kekayaan intelektual yang berlaku.</li>
+            <li>Anda diberikan hak yang terbatas, tidak eksklusif, tidak dapat dipindahtangankan, untuk menggunakan layanan sesuai dengan tujuan yang dimaksudkan dalam S&K ini.</li>
+            <li>Data keuangan yang Anda masukkan tetap menjadi milik Anda, sebagaimana diatur dalam Pasal 7.</li>
+          </ol>
+
+          <h3>9. Batasan Tanggung Jawab</h3>
+          <ol>
+            <li>KantongAjaib disediakan atas dasar "sebagaimana adanya" (as is) dan "sebagaimana tersedia" (as available), tanpa jaminan bahwa layanan akan bebas dari kesalahan, gangguan, atau tanpa henti.</li>
+            <li>KantongAjaib merupakan alat bantu pencatatan, bukan penasihat keuangan, akuntan, atau konsultan pajak. Segala keputusan keuangan yang Anda ambil berdasarkan data dalam aplikasi sepenuhnya menjadi tanggung jawab Anda.</li>
+            <li>Sepanjang diizinkan oleh hukum yang berlaku, Kami tidak bertanggung jawab atas kerugian tidak langsung, kerugian khusus, kehilangan keuntungan, atau kehilangan data yang timbul dari penggunaan atau ketidakmampuan menggunakan layanan, termasuk yang disebabkan oleh gangguan pihak ketiga (misalnya penyedia layanan WhatsApp/gateway pesan).</li>
+            <li>Kami menyarankan Anda untuk melakukan pencadangan (backup) data secara berkala apabila diperlukan.</li>
+          </ol>
+
+          <h3>10. Perubahan Layanan dan Ketentuan</h3>
+          <ol>
+            <li>Kami berhak mengubah, menambah, atau menghentikan fitur tertentu, termasuk struktur harga paket, sewaktu-waktu dengan pemberitahuan yang wajar melalui aplikasi, situs web, email, atau WhatsApp.</li>
+            <li>Kami dapat memperbarui S&K ini dari waktu ke waktu. Versi terbaru akan selalu tersedia di halaman ini dengan tanggal pembaruan yang tertera di bagian atas. Penggunaan layanan secara terus-menerus setelah perubahan berlaku dianggap sebagai persetujuan Anda atas S&K yang telah diperbarui.</li>
+          </ol>
+
+          <h3>11. Penghentian Layanan</h3>
+          <ol>
+            <li>Anda dapat berhenti menggunakan KantongAjaib dan/atau meminta penghapusan akun kapan saja melalui pengaturan aplikasi atau dengan menghubungi Kami.</li>
+            <li>Kami berhak menangguhkan atau menghapus akun yang melanggar S&K ini, terindikasi melakukan penyalahgunaan, atau sesuai dengan kebijakan tidak aktif sebagaimana disebutkan pada Pasal 3.</li>
+            <li>Penghentian layanan tidak menghapus kewajiban pembayaran yang telah timbul sebelum tanggal penghentian.</li>
+          </ol>
+
+          <h3>12. Hukum yang Berlaku dan Penyelesaian Sengketa</h3>
+          <ol>
+            <li>S&K ini diatur dan ditafsitkan berdasarkan hukum Negara Republik Indonesia.</li>
+            <li>Setiap perselisihan yang timbul sehubungan dengan S&K ini akan diupayakan penyelesaiannya terlebih dahulu secara musyawarah untuk mufakat. Apabila tidak tercapai kesepakatan, sengketa akan diselesaikan melalui pengadilan yang berwenang sesuai dengan ketentuan hukum yang berlaku.</li>
+          </ol>
+
+          <h3>13. Lain-lain</h3>
+          <ol>
+            <li>Apabila salah satu ketentuan dalam S&K ini dinyatakan tidak sah atau tidak dapat diberlakukan oleh pengadilan yang berwenang, ketentuan lainnya tetap berlaku penuh.</li>
+            <li>S&K ini, bersama dengan Kebijakan Privasi, merupakan keseluruhan kesepakatan antara Anda dan KantongAjaib terkait penggunaan layanan.</li>
+            <li>Kegagalan Kami untuk menegakkan suatu hak atau ketentuan dalam S&K ini tidak dianggap sebagai pengesampingan atas hak tersebut.</li>
+          </ol>
+
+          <h3>14. Kontak Kami</h3>
+          <p>Apabila Anda memiliki pertanyaan mengenai Syarat dan Ketentuan ini, silakan hubungi Kami melalui:</p>
+          <ul>
+            <li>Email: <a href="mailto:infocashidofficial@fmail.com" style="color: var(--primary-light);">infocashidofficial@fmail.com</a></li>
+            <li>Atau melalui saluran bantuan resmi yang tersedia di dalam aplikasi atau situs KantongAjaib.id.</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- FOOTER TOOLBAR -->
+      <div class="terms-modal-footer">
+        <button id="terms-bottom-close-btn" class="btn btn-primary" style="padding: 12px 32px; font-size: 0.95rem;">
+          Tutup & Kembali ke Beranda
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- THEME SWITCHER & MODALS SCRIPT -->
   <script>
     (function() {
       const themeBtn = document.getElementById('theme-btn');
@@ -1681,6 +2005,46 @@
           applyTheme(selected);
           themeDropdown.classList.remove('show');
         });
+      });
+
+      // SYARAT & KETENTUAN MODAL CONTROLLER
+      const termsModal = document.getElementById('terms-modal');
+      const termsTriggers = document.querySelectorAll('a[href="#syarat"]');
+      const termsHomeBtn = document.getElementById('terms-home-btn');
+      const termsTopCloseBtn = document.getElementById('terms-top-close-btn');
+      const termsBottomCloseBtn = document.getElementById('terms-bottom-close-btn');
+
+      function openTermsModal(e) {
+        if (e) e.preventDefault();
+        termsModal.classList.add('active');
+        termsModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeTermsModal() {
+        termsModal.classList.remove('active');
+        termsModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      termsTriggers.forEach(trigger => {
+        trigger.addEventListener('click', openTermsModal);
+      });
+
+      if (termsHomeBtn) termsHomeBtn.addEventListener('click', closeTermsModal);
+      if (termsTopCloseBtn) termsTopCloseBtn.addEventListener('click', closeTermsModal);
+      if (termsBottomCloseBtn) termsBottomCloseBtn.addEventListener('click', closeTermsModal);
+
+      termsModal.addEventListener('click', (e) => {
+        if (e.target === termsModal) {
+          closeTermsModal();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && termsModal.classList.contains('active')) {
+          closeTermsModal();
+        }
       });
     })();
   </script>
