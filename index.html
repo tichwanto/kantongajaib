@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KantongAjaib.id - Pencatatan Keuangan Sederhana untuk Semua</title>
+  <meta name="description" content="KantongAjaib adalah aplikasi pencatatan keuangan sederhana untuk pedagang kaki lima, ibu rumah tangga, pelajar/mahasiswa, karyawan, dan UMKM. Catat pemasukan, pengeluaran, buku kas, utang piutang, e-invoice & pengingat WhatsApp.">
+  <meta name="keywords" content="kantong ajaib, pencatatan keuangan, buku kas digital, aplikasi keuangan umkm, e-invoice sederhana, ingetin whatsapp, utang piutang">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="KantongAjaib.id - Pencatatan Keuangan Sederhana">
+  <meta property="og:description" content="Mengelola keuangan tidak harus rumit. Catat uang masuk, keluar, utang piutang, dan buat e-Invoice dengan mudah.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kantongajaib.id">
+  <meta property="og:image" content="assets/hero-app.jpg">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS RESET & VARIABLES - ANTIGRAVITY EDITOR THEME */
+    :root {
+      --bg-dark: #0d1117;
+      --bg-card: #161b22;
+      --bg-card-hover: #21262d;
+      --primary: #0284c7;
+      --primary-light: #38bdf8;
+      --primary-dark: #0369a1;
+      --accent-blue: #38bdf8;
+      --accent-purple: #a855f7;
+      --accent-amber: #f59e0b;
+      --text-main: #f0f6fc;
+      --text-muted: #8b949e;
+      --text-dark: #484f58;
+      --border-color: #30363d;
+      --border-glow: rgba(56, 189, 248, 0.4);
+      --glass-bg: rgba(22, 27, 34, 0.85);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* LIGHT MODE PALETTE */
+    html[data-theme="light"] {
+      --bg-dark: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f5f9;
+      --primary: #0284c7;
+      --primary-light: #0284c7;
+      --primary-dark: #075985;
+      --accent-blue: #0284c7;
+      --accent-purple: #9333ea;
+      --accent-amber: #d97706;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dark: #94a3b8;
+      --border-color: #e2e8f0;
+      --border-glow: rgba(2, 132, 199, 0.35);
+      --glass-bg: rgba(255, 255, 255, 0.85);
+    }
+
+    html[data-theme="light"] body {
+      background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 40%, rgba(56, 189, 248, 0.06) 0%, transparent 40%),
+                  var(--bg-dark);
+    }
+
+    html[data-theme="light"] header {
+      background: rgba(255, 255, 255, 0.85);
+      border-bottom-color: #e2e8f0;
+    }
+
+    html[data-theme="light"] h1, 
+    html[data-theme="light"] h2, 
+    html[data-theme="light"] h3, 
+    html[data-theme="light"] h4, 
+    html[data-theme="light"] h5,
+    html[data-theme="light"] summary,
+    html[data-theme="light"] .price-value {
+      color: #0f172a;
+    }
+
+    html[data-theme="light"] footer {
+      background: #f1f5f9;
+      border-top-color: #e2e8f0;
+    }
+
+    html[data-theme="light"] .flagship-box {
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.05) 0%, #ffffff 100%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    html[data-theme="light"] .flagship-box-amber {
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.05) 0%, #ffffff 100%);
+    }
+
+    html[data-theme="light"] .about-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    html[data-theme="light"] .cta-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(56, 189, 248, 0.08) 100%), #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    html[data-theme="light"] .hero-img-card {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      background: #ffffff;
+    }
+
+    html[data-theme="light"] .floating-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: #e2e8f0;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    html[data-theme="light"] .floating-card .card-info p {
+      color: #0f172a;
+    }
+
+    html[data-theme="light"] .btn-outline {
+      background: rgba(15, 23, 42, 0.04);
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
+
+    html[data-theme="light"] .btn-outline:hover {
+      background: rgba(15, 23, 42, 0.08);
+      border-color: #94a3b8;
+    }
+
+    /* THEME SWITCHER STYLES */
+    .theme-switcher {
+      position: relative;
+    }
+
+    .theme-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .theme-btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--primary-light);
+    }
+
+    .theme-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 6px;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 130px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 120;
+    }
+
+    .theme-dropdown.show {
+      display: flex;
+    }
+
+    .theme-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+      text-align: left;
+    }
+
+    .theme-option:hover {
+      color: var(--text-main);
+      background: var(--bg-card-hover);
+    }
+
+    .theme-option.active {
+      font-weight: 700;
+      color: var(--primary-light);
+      background: var(--bg-card-hover);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      line-height: 1.6;
+      background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 40%, rgba(56, 189, 248, 0.06) 0%, transparent 40%),
+                  var(--bg-dark);
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3, h4, h5 {
+      color: var(--text-main);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 50%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-amber-gradient {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* CONTAINER & UTILITIES */
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(2, 132, 199, 0.12);
+      border: 1px solid rgba(2, 132, 199, 0.3);
+      border-radius: var(--radius-full);
+      color: var(--primary-light);
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .badge-amber {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.3);
+      color: #fbbf24;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 20px rgba(2, 132, 199, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(2, 132, 199, 0.5);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 60px;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.125rem;
+    }
+
+    /* HEADER & NAVIGATION */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      transition: var(--transition);
+      padding: 20px 0;
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(13, 17, 23, 0.85);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .logo-img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(56, 189, 248, 0.4));
+      transition: var(--transition);
+    }
+
+    .logo:hover .logo-img {
+      transform: scale(1.08) rotate(-3deg);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--primary-light);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding-top: 170px;
+      padding-bottom: 90px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3.25rem;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .stat-item h4 {
+      font-size: 1.75rem;
+      color: var(--primary-light);
+      font-weight: 800;
+    }
+
+    .stat-item p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* HERO VISUAL MOCKUP */
+    .hero-preview {
+      position: relative;
+    }
+
+    .hero-img-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(2, 132, 199, 0.2);
+      background: var(--bg-card);
+    }
+
+    .hero-img-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-img-card:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Floating Widget Cards */
+    .floating-card {
+      position: absolute;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+      animation: float 4s ease-in-out infinite alternate;
+    }
+
+    .floating-card-1 {
+      top: -20px;
+      left: -20px;
+    }
+
+    .floating-card-2 {
+      bottom: -20px;
+      right: -20px;
+      animation-delay: -2s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-10px); }
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .icon-green { background: rgba(2, 132, 199, 0.2); color: #38bdf8; }
+    .icon-blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+    .icon-amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+
+    .card-info h5 {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .card-info p {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    /* TARGET AUDIENCE SECTION */
+    .target-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .target-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .target-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-glow);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .target-card .target-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .target-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .target-card p {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* FEATURES SECTION */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon-wrapper {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(2, 132, 199, 0.1);
+      border: 1px solid rgba(2, 132, 199, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-light);
+      margin-bottom: 24px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.975rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    /* FLAGSHIP FEATURES (HIGHLIGHT) */
+    .flagship-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .flagship-box {
+      background: linear-gradient(145deg, rgba(2, 132, 199, 0.08) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid rgba(2, 132, 199, 0.25);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .flagship-box-amber {
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.08) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border-color: rgba(245, 158, 11, 0.25);
+    }
+
+    .flagship-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .tag-green { background: rgba(2, 132, 199, 0.2); color: #38bdf8; }
+    .tag-amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+
+    .flagship-box h3 {
+      font-size: 1.75rem;
+      margin-bottom: 14px;
+    }
+
+    .flagship-box p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .flagship-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .flagship-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .flagship-list svg {
+      flex-shrink: 0;
+    }
+
+    /* PRICING SECTION */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 960px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .pricing-card.popular {
+      background: linear-gradient(160deg, rgba(2, 132, 199, 0.12) 0%, var(--bg-card) 60%);
+      border: 2px solid var(--primary);
+      box-shadow: 0 0 35px rgba(2, 132, 199, 0.25);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -16px;
+      right: 32px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.05em;
+    }
+
+    .pricing-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .pricing-header p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .price-value {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .price-period {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .pricing-features li.disabled {
+      color: var(--text-dark);
+      text-decoration: line-through;
+    }
+
+    .pricing-disclaimer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ABOUT US SECTION */
+    .about-card {
+      background: linear-gradient(135deg, rgba(22, 27, 34, 0.9) 0%, rgba(13, 17, 23, 0.95) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .about-card p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--text-main);
+      margin-bottom: 0;
+    }
+
+    .quote-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      opacity: 0.3;
+      margin-bottom: 12px;
+    }
+
+    /* FAQ ACCORDION SECTION */
+    .faq-container {
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    details[name="faq"] {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    details[name="faq"][open] {
+      border-color: var(--border-glow);
+      background: var(--bg-card-hover);
+    }
+
+    summary {
+      padding: 14px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--primary-light);
+      transition: transform 0.3s ease;
+    }
+
+    details[open] summary::after {
+      content: "−";
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 20px 16px 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(56, 189, 248, 0.15) 100%),
+                  var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .cta-banner h2 {
+      font-size: 2.25rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-banner p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 60px 0 30px;
+      background: #010409;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-top: 16px;
+      max-width: 380px;
+      line-height: 1.6;
+    }
+
+    .footer-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-dark);
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 2.75rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flagship-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .hero-content h1 {
+        font-size: 2.25rem;
+      }
+
+      .floating-card {
+        display: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION HEADER -->
+  <header>
+    <div class="container">
+      <nav class="nav-wrapper" aria-label="Navigasi Utama">
+        <a href="#" class="logo">
+          <img src="assets/logo.png" alt="KantongAjaib Logo" class="logo-img" width="42" height="42">
+          <span>Kantong<span class="text-gradient">Ajaib</span></span>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="#fitur" class="nav-link">Fitur Utama</a></li>
+          <li><a href="#target" class="nav-link">Target Pengguna</a></li>
+          <li><a href="#unggulan" class="nav-link">Fitur Unggulan</a></li>
+          <li><a href="#harga" class="nav-link">Harga</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- THEME SWITCHER -->
+          <div class="theme-switcher">
+            <button id="theme-btn" class="theme-btn" aria-label="Pilih Tema Warna" title="Pilih Tema Warna">
+              <span id="theme-icon">💻</span>
+              <span id="theme-label" class="theme-label">System</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div id="theme-dropdown" class="theme-dropdown">
+              <button data-theme-value="system" class="theme-option active">
+                <span>💻</span> System
+              </button>
+              <button data-theme-value="dark" class="theme-option">
+                <span>🌙</span> Dark
+              </button>
+              <button data-theme-value="light" class="theme-option">
+                <span>☀️</span> Light
+              </button>
+            </div>
+          </div>
+
+          <a href="https://kantongajaib.id/auth/login" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.9rem;">Masuk</a>
+          <a href="https://kantongajaib.id/auth/register" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.9rem;">Mulai Gratis</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span>Solusi Pencatatan Keuangan Sederhana</span>
+          </div>
+
+          <h1>Catat Keuangan Tanpa Ribet Bersama <span class="text-gradient">KantongAjaib</span></h1>
+          
+          <p>
+            Aplikasi pencatatan uang masuk, keluar, buku kas, serta utang piutang yang dirancang simpel & cepat. Dilengkapi e-Invoice profesional dan Pengingat WhatsApp otomatis!
+          </p>
+
+          <div class="hero-buttons">
+            <a href="https://kantongajaib.id/auth/register" class="btn btn-primary">
+              Mulai Gratis Sekarang
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#fitur" class="btn btn-outline">Lihat Fitur Lengkap</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h4>100%</h4>
+              <p>Praktis & Tanpa Ribet</p>
+            </div>
+            <div class="stat-item">
+              <h4>WhatsApp</h4>
+              <p>Reminder Otomatis</p>
+            </div>
+            <div class="stat-item">
+              <h4>e-Invoice</h4>
+              <p>Faktur Instan</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-preview">
+          <!-- Floating Widget 1 -->
+          <div class="floating-card floating-card-1">
+            <div class="card-icon icon-green">
+              💰
+            </div>
+            <div class="card-info">
+              <h5>Pemasukan Penjualan</h5>
+              <p>+ Rp 1.250.000</p>
+            </div>
+          </div>
+
+          <!-- Hero Image Card -->
+          <div class="hero-img-card">
+            <img src="assets/hero-app.jpg" alt="Dashboard Aplikasi KantongAjaib" width="800" height="450">
+          </div>
+
+          <!-- Floating Widget 2 -->
+          <div class="floating-card floating-card-2">
+            <div class="card-icon icon-amber">
+              📲
+            </div>
+            <div class="card-info">
+              <h5>Ingetin WA Sent</h5>
+              <p>Tagihan Utang Terkirim</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARGET AUDIENCE SECTION -->
+  <section id="target" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Siapa Saja yang Menggunakan?</div>
+        <h2>Dirancang Khusus untuk <span class="text-gradient">Kebutuhan Anda</span></h2>
+        <p>Tidak perlu paham akuntansi rumit. KantongAjaib hadir untuk mempermudah pencatatan keuangan harian siapa saja.</p>
+      </div>
+
+      <div class="target-grid">
+        <div class="target-card">
+          <div class="target-emoji">🍢</div>
+          <h3>Pedagang Kaki Lima</h3>
+          <p>Catat hasil jualan harian, belanja bahan baku, dan kontrol modal dengan cepat di sela kesibukan berdagang.</p>
+        </div>
+
+        <div class="target-card">
+          <div class="target-emoji">🏠</div>
+          <h3>Ibu Rumah Tangga</h3>
+          <p>Kelola alokasi belanja dapur, uang sekolah anak, bayar listrik, dan tabungan keluarga lebih terencana.</p>
+        </div>
+
+        <div class="target-card">
+          <div class="target-emoji">🎓</div>
+          <h3>Pelajar & Mahasiswa</h3>
+          <p>Pantau penggunaan uang saku bulanan, uang kos, dan dana kegiatan kampus agar tidak boros sebelum akhir bulan.</p>
+        </div>
+
+        <div class="target-card">
+          <div class="target-emoji">💼</div>
+          <h3>Karyawan</h3>
+          <p>Alokasikan gaji bulanan, catat pengeluaran gaya hidup, dana darurat, serta tagihan rutin tanpa ribet.</p>
+        </div>
+
+        <div class="target-card">
+          <div class="target-emoji">🛍️</div>
+          <h3>Usaha Mikro (UMKM)</h3>
+          <p>Kelola arus kas toko, buat e-Invoice & e-Quotation profesional untuk pembeli, serta tagih utang via WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE FEATURES SECTION -->
+  <section id="fitur" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Fitur Utama</div>
+        <h2>Segala yang Anda Butuhkan untuk <span class="text-gradient">Kelola Uang</span></h2>
+        <p>Fitur pencatatan esensial yang membuat pembukuan keuangan jadi sangat rapi dan mudah difahami.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <h3>Pencatatan Uang Masuk & Keluar</h3>
+          <p>Masukkan transaksi pendapatan dan pengeluaran Anda dalam hitungan detik. Dilengkapi kategori jelas untuk analisis arus kas yang transparan.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="3"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+          </div>
+          <h3>Buku Kas (Kantongku)</h3>
+          <p>Pisahkan dompet atau pos keuangan sesuai kebutuhan Anda. Misalnya Kantong Utama, Kantong Tabungan, atau Kantong Modal Usaha.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <polyline points="17 11 19 13 23 9"></polyline>
+            </svg>
+          </div>
+          <h3>Pencatatan Utang & Piutang</h3>
+          <p>Jaga hubungan baik dan arus kas dengan mencatat riwayat utang dan piutang pelanggan atau kawan secara mendetail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAGSHIP FEATURES (FITUR UNGGULAN) -->
+  <section id="unggulan" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge badge-amber">⭐ Fitur Unggulan</div>
+        <h2>Inovasi Digital untuk <span class="text-amber-gradient">Kenyamanan Anda</span></h2>
+        <p>Tingkatkan profesionalisme usaha dan kebiasaan finansial Anda dengan fitur eksklusif KantongAjaib.</p>
+      </div>
+
+      <div class="flagship-wrapper">
+        <!-- Flagship 1 -->
+        <div class="flagship-box">
+          <span class="flagship-tag tag-green">Dokumen Digital Instant</span>
+          <h3>e-Invoice, e-Quotation & e-Receipt</h3>
+          <p>Buat dan kirim penawaran harga (Quotation), faktur tagihan (Invoice), dan bukti pembayaran (Receipt) dalam format digital yang elegan langsung ke pelanggan Anda.</p>
+          
+          <ul class="flagship-list">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Format profesional siap kirim PDF / WhatsApp
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Riwayat status pembayaran terpantau otomatis
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Cepat dibuat tanpa perlu laptop atau desain
+            </li>
+          </ul>
+        </div>
+
+        <!-- Flagship 2 -->
+        <div class="flagship-box flagship-box-amber">
+          <span class="flagship-tag tag-amber">Notifikasi WA Otomatis</span>
+          <h3>Ingetin (WhatsApp Reminder)</h3>
+          <p>Jangan sampai ada tagihan utang atau jadwal pembayaran penting yang terlewat. Fitur Ingetin mengirim pesan pengingat langsung ke WhatsApp Anda atau pelanggan.</p>
+          
+          <ul class="flagship-list">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Pesan pengingat jatuh tempo utang piutang
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Pengingat jadwal catat kas harian & mingguan
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Tersambung langsung tanpa perlu aplikasi tambahan
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="harga" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Pilihan Paket</div>
+        <h2>Harga Simpel Tanpa <span class="text-gradient">Biaya Tersembunyi</span></h2>
+        <p>Pilih paket yang paling sesuai dengan kebutuhan pengelolaan keuangan harian atau usaha Anda.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- KANTONG GRATIS -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Kantong Gratis</h3>
+            <p>Cocok untuk mencoba dan kebutuhan pencatatan dasar harian.</p>
+          </div>
+
+          <div class="price-value">
+            Rp 0 <span class="price-period">/ selamanya</span>
+          </div>
+
+          <ul class="pricing-features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>1</strong> Buku kas (kantongku)</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>10</strong> Transaksi pendapatan / bulan</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>10</strong> Transaksi pengeluaran / bulan</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>10</strong> Transaksi utang & piutang / bulan</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Maksimal <strong>25</strong> Kontak tersimpan</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>e-Invoice, e-Quotation & e-Receipt (Masing-masing 1/bulan)</span>
+            </li>
+            <li class="disabled">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span>Fitur Ingetin WhatsApp (Tidak tersedia)</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Akun dihapus jika tidak aktif 1 bulan</span>
+            </li>
+          </ul>
+
+          <a href="https://kantongajaib.id/auth/register" class="btn btn-outline" style="width: 100%;">Daftar Gratis</a>
+        </div>
+
+        <!-- KANTONG PINTAR -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">Paling Populer</div>
+          
+          <div class="pricing-header">
+            <h3>Kantong Pintar</h3>
+            <p>Solusi lengkap tanpa batas untuk perkembangan keuangan & usaha Anda.</p>
+          </div>
+
+          <div class="price-value">
+            <span class="text-gradient">Terjangkau</span> <span class="price-period">/ berlangganan</span>
+          </div>
+
+          <ul class="pricing-features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>10</strong> Buku kas (kantongku)</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Transaksi pendapatan : <strong>UNLIMITED</strong></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Transaksi pengeluaran : <strong>UNLIMITED</strong></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Transaksi utang & piutang : <strong>UNLIMITED</strong></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Jumlah kontak : <strong>UNLIMITED</strong></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>e-Invoice, e-Quotation & e-Receipt : <strong>UNLIMITED</strong></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Fitur <strong>Ingetin WhatsApp (TERSEDIA)</strong></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>Masa aktif aman : Dihapus jika tidak aktif 1 tahun</span>
+            </li>
+          </ul>
+
+          <a href="https://kantongajaib.id/auth/register" class="btn btn-primary" style="width: 100%;">Coba Kantong Pintar Sekarang</a>
+        </div>
+      </div>
+
+      <p class="pricing-disclaimer">
+        * Catatan: Skema nominal harga dapat disesuaikan sesuai dengan paket aktif KantongAjaib.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">FAQ</div>
+        <h2>Pertanyaan yang Sering <span class="text-gradient">Diajukan</span></h2>
+        <p>Temukan jawaban lengkap seputar cara penggunaan dan manfaat aplikasi KantongAjaib.</p>
+      </div>
+
+      <div class="faq-container">
+        <!-- Q1 -->
+        <details name="faq" open>
+          <summary>1. Apa itu KantongAjaib?</summary>
+          <div class="faq-answer">
+            KantongAjaib adalah platform digital yang membantu Anda mengelola keuangan dengan lebih mudah dan teratur. Dengan KantongAjaib, Anda dapat mencatat dan memantau transaksi keuangan sehingga lebih mudah mengetahui kondisi keuangan Anda sehari-hari.
+          </div>
+        </details>
+
+        <!-- Q2 -->
+        <details name="faq">
+          <summary>2. KantongAjaib ditujukan untuk siapa?</summary>
+          <div class="faq-answer">
+            KantongAjaib dirancang untuk siapa saja yang ingin mengelola keuangannya dengan lebih baik, mulai dari pelajar, mahasiswa, ibu rumah tangga, karyawan, freelancer, hingga pelaku UMKM. Tidak perlu memiliki pengetahuan akuntansi untuk menggunakannya.
+          </div>
+        </details>
+
+        <!-- Q3 -->
+        <details name="faq">
+          <summary>3. Apa saja yang bisa dilakukan dengan KantongAjaib?</summary>
+          <div class="faq-answer">
+            KantongAjaib membantu Anda mencatat dan mengelola berbagai aktivitas keuangan secara praktis. Anda dapat menggunakan KantongAjaib untuk mencatat pemasukan dan pengeluaran, memantau saldo, mengelola transaksi, serta melihat kondisi keuangan dengan lebih mudah.
+          </div>
+        </details>
+
+        <!-- Q4 -->
+        <details name="faq">
+          <summary>4. Apakah KantongAjaib sulit digunakan?</summary>
+          <div class="faq-answer">
+            Tidak. KantongAjaib dirancang dengan konsep sederhana dan mudah digunakan. Anda cukup memasukkan transaksi keuangan yang terjadi, dan KantongAjaib akan membantu menyajikan informasi keuangan tersebut dengan lebih teratur.
+          </div>
+        </details>
+
+        <!-- Q5 -->
+        <details name="faq">
+          <summary>5. Apakah KantongAjaib gratis?</summary>
+          <div class="faq-answer">
+            KantongAjaib menyediakan paket <strong>Kantong Gratis</strong> yang dapat digunakan untuk kebutuhan dasar. Bagi pengguna yang membutuhkan fitur dan fasilitas lebih lengkap, tersedia paket <strong>Kantong Pintar</strong> dengan pilihan yang disesuaikan dengan kebutuhan pengguna.
+          </div>
+        </details>
+
+        <!-- Q6 -->
+        <details name="faq">
+          <summary>6. Apakah data keuangan saya aman?</summary>
+          <div class="faq-answer">
+            Kami memahami bahwa data keuangan merupakan informasi yang bersifat penting dan pribadi. Karena itu, KantongAjaib berkomitmen untuk menjaga keamanan dan kerahasiaan data pengguna serta menerapkan langkah-langkah pengamanan yang diperlukan dalam pengelolaan data.
+          </div>
+        </details>
+
+        <!-- Q7 -->
+        <details name="faq">
+          <summary>7. Bagaimana cara mulai menggunakan KantongAjaib?</summary>
+          <div class="faq-answer">
+            Sangat mudah. Anda cukup mendaftar akun KantongAjaib, masuk ke akun, kemudian mulai mencatat transaksi keuangan Anda. Setelah itu, Anda dapat menggunakan berbagai fitur yang tersedia untuk membantu mengelola keuangan dengan lebih teratur.
+          </div>
+        </details>
+
+        <!-- Q8 -->
+        <details name="faq">
+          <summary>8. Apakah KantongAjaib hanya untuk keuangan pribadi?</summary>
+          <div class="faq-answer">
+            Tidak. KantongAjaib dapat digunakan untuk berbagai kebutuhan pengelolaan keuangan, baik keuangan pribadi maupun usaha, tergantung fitur dan paket yang tersedia.
+          </div>
+        </details>
+
+        <!-- Q9 -->
+        <details name="faq">
+          <summary>9. Mengapa saya perlu menggunakan KantongAjaib?</summary>
+          <div class="faq-answer">
+            Karena mengetahui ke mana uang Anda pergi adalah langkah penting untuk mengelola keuangan dengan lebih baik. KantongAjaib membantu Anda mencatat, memantau, dan memahami kondisi keuangan tanpa perlu menggunakan pencatatan yang rumit.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="section" style="padding-top: 40px;">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Siap Mengelola Keuangan dengan Lebih Rapi dan Teratur?</h2>
+        <p>Gabung bersama ribuan pengguna KantongAjaib lainnya dan rasakan kemudahan mencatat keuangan hari ini.</p>
+        <a href="https://kantongajaib.id/auth/register" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 36px;">
+          Mulai Gunakan KantongAjaib Sekarang
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="assets/logo.png" alt="KantongAjaib Logo" class="logo-img" width="42" height="42">
+            <span>Kantong<span class="text-gradient">Ajaib</span>.id</span>
+          </a>
+          <p>KantongAjaib dibangun oleh tim yang memiliki semangat untuk menghadirkan solusi digital yang sederhana dan bermanfaat bagi kehidupan sehari-hari. Kami percaya bahwa mengelola keuangan tidak harus rumit. Dengan perpaduan pengalaman, kreativitas, dan teknologi, tim kami terus mengembangkan solusi yang mudah digunakan dan relevan dengan kebutuhan masyarakat.</p>
+        </div>
+
+        <div>
+          <h5 class="footer-title">Fitur</h5>
+          <ul class="footer-links">
+            <li><a href="#fitur">Pencatatan Transaksi</a></li>
+            <li><a href="#fitur">Buku Kas (Kantongku)</a></li>
+            <li><a href="#fitur">Utang Piutang</a></li>
+            <li><a href="#unggulan">e-Invoice & Receipt</a></li>
+            <li><a href="#unggulan">Ingetin (WhatsApp)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-title">Target Pengguna</h5>
+          <ul class="footer-links">
+            <li><a href="#target">Pedagang Kaki Lima</a></li>
+            <li><a href="#target">Ibu Rumah Tangga</a></li>
+            <li><a href="#target">Pelajar & Mahasiswa</a></li>
+            <li><a href="#target">Karyawan</a></li>
+            <li><a href="#target">Usaha Mikro (UMKM)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-title">Perusahaan</h5>
+          <ul class="footer-links">
+            <li><a href="#tentang">Tentang Kami</a></li>
+            <li><a href="#harga">Pilihan Paket</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">Syarat & Ketentuan</a></li>
+            <li><a href="#">Kebijakan Privasi</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 KantongAjaib.id. Hak Cipta Dilindungi Undang-Undang.</p>
+        <p>Dibuat dengan ❤️ untuk kemudahan keuangan masyarakat Indonesia.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- THEME SWITCHER SCRIPT -->
+  <script>
+    (function() {
+      const themeBtn = document.getElementById('theme-btn');
+      const themeDropdown = document.getElementById('theme-dropdown');
+      const themeIcon = document.getElementById('theme-icon');
+      const themeLabel = document.getElementById('theme-label');
+      const themeOptions = document.querySelectorAll('.theme-option');
+
+      const icons = {
+        system: '💻',
+        dark: '🌙',
+        light: '☀️'
+      };
+
+      const labels = {
+        system: 'System',
+        dark: 'Dark',
+        light: 'Light'
+      };
+
+      function getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      function applyTheme(theme) {
+        const activeTheme = theme === 'system' ? getSystemTheme() : theme;
+        document.documentElement.setAttribute('data-theme', activeTheme);
+        
+        themeIcon.textContent = icons[theme] || '💻';
+        themeLabel.textContent = labels[theme] || 'System';
+
+        themeOptions.forEach(opt => {
+          if (opt.getAttribute('data-theme-value') === theme) {
+            opt.classList.add('active');
+          } else {
+            opt.classList.remove('active');
+          }
+        });
+      }
+
+      const savedTheme = localStorage.getItem('kantong_theme') || 'system';
+      applyTheme(savedTheme);
+
+      // Listen to system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        const currentSaved = localStorage.getItem('kantong_theme') || 'system';
+        if (currentSaved === 'system') {
+          applyTheme('system');
+        }
+      });
+
+      themeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        themeDropdown.classList.toggle('show');
+      });
+
+      document.addEventListener('click', () => {
+        themeDropdown.classList.remove('show');
+      });
+
+      themeOptions.forEach(opt => {
+        opt.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const selected = opt.getAttribute('data-theme-value');
+          localStorage.setItem('kantong_theme', selected);
+          applyTheme(selected);
+          themeDropdown.classList.remove('show');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
