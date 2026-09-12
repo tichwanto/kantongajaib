@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KantongAjaib.id - Pencatatan Keuangan Sederhana untuk Semua</title>
-  <meta name="description" content="KantongAjaib adalah aplikasi pencatatan keuangan sederhana untuk pedagang kaki lima, ibu rumah tangga, pelajar/mahasiswa, karyawan, dan UMKM. Catat pemasukan, pengeluaran, buku kas, utang piutang, dan e-invoice.">
-  <meta name="keywords" content="kantong ajaib, pencatatan keuangan, buku kas digital, aplikasi keuangan umkm, e-invoice sederhana, utang piutang">
+  <meta name="description" content="KantongAjaib adalah aplikasi pencatatan keuangan sederhana untuk pedagang kaki lima, ibu rumah tangga, pelajar/mahasiswa, karyawan, dan UMKM. Catat pemasukan, pengeluaran, buku kas, utang piutang, dan e-Invoice, e-Quotation & e-Kuitansi.">
+  <meta name="keywords" content="kantong ajaib, pencatatan keuangan, buku kas digital, aplikasi keuangan umkm, e-Invoice, e-Quotation, e-Kuitansi, utang piutang">
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -16,7 +16,7 @@
 
   <!-- Open Graph / Social Media -->
   <meta property="og:title" content="KantongAjaib.id - Pencatatan Keuangan Sederhana">
-  <meta property="og:description" content="Mengelola keuangan tidak harus rumit. Catat uang masuk, keluar, utang piutang, dan buat e-Invoice dengan mudah.">
+  <meta property="og:description" content="Mengelola keuangan tidak harus rumit. Catat uang masuk, keluar, utang piutang, dan buat e-Invoice, e-Quotation & e-Kuitansi dengan mudah.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kantongajaib.id">
   <meta property="og:image" content="assets/hero-app.jpg">
@@ -71,9 +71,9 @@
     }
 
     html[data-theme="light"] body {
-      background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.08) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 40%, rgba(56, 189, 248, 0.06) 0%, transparent 40%),
-                  var(--bg-dark);
+      background-color: #f8fafc;
+      background-image: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 40%, rgba(56, 189, 248, 0.06) 0%, transparent 40%);
     }
 
     html[data-theme="light"] header {
@@ -94,15 +94,6 @@
     html[data-theme="light"] footer {
       background: #f1f5f9;
       border-top-color: #e2e8f0;
-    }
-
-    html[data-theme="light"] .flagship-box {
-      background: linear-gradient(145deg, rgba(2, 132, 199, 0.05) 0%, #ffffff 100%);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    }
-
-    html[data-theme="light"] .flagship-box-amber {
-      background: linear-gradient(145deg, rgba(2, 132, 199, 0.05) 0%, #ffffff 100%);
     }
 
     html[data-theme="light"] .about-card {
@@ -249,12 +240,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .text-amber-gradient {
-      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 50%, #60a5fa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
     a {
       color: inherit;
       text-decoration: none;
@@ -285,12 +270,6 @@
       font-size: 0.875rem;
       font-weight: 600;
       margin-bottom: 20px;
-    }
-
-    .badge-amber {
-      background: rgba(2, 132, 199, 0.12);
-      border-color: rgba(2, 132, 199, 0.3);
-      color: var(--primary-light);
     }
 
     .btn {
@@ -415,17 +394,26 @@
 
     .mobile-toggle {
       display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 9px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: var(--text-main);
       cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .mobile-toggle:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--primary-light);
     }
 
     /* HERO SECTION */
     .hero {
-      padding-top: 170px;
-      padding-bottom: 90px;
+      padding-top: 120px;
+      padding-bottom: 80px;
       position: relative;
     }
 
@@ -458,22 +446,42 @@
 
     .hero-stats {
       display: flex;
-      gap: 32px;
-      margin-top: 48px;
-      padding-top: 32px;
+      gap: 0;
+      margin-top: 40px;
+      padding-top: 28px;
       border-top: 1px solid var(--border-color);
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .stat-item {
+      flex: 1 1 0;
+      min-width: 0;
+      padding: 0 16px;
+    }
+
+    .stat-item:first-child {
+      padding-left: 0;
+    }
+
+    .stat-item:last-child {
+      padding-right: 0;
     }
 
     .stat-item h4 {
-      font-size: 1.75rem;
+      font-size: 1.2rem;
       color: var(--primary-light);
       font-weight: 800;
+      white-space: normal;
+      line-height: 1.3;
     }
 
     .stat-item p {
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-      margin: 0;
+      margin: 4px 0 0 0;
+      line-height: 1.4;
     }
 
     /* HERO VISUAL MOCKUP */
@@ -481,6 +489,7 @@
       position: relative;
     }
 
+    /* ===== HERO SLIDESHOW ===== */
     .hero-img-card {
       position: relative;
       border-radius: var(--radius-lg);
@@ -488,17 +497,126 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(2, 132, 199, 0.2);
       background: var(--bg-card);
+      aspect-ratio: 4/3;
+      isolation: isolate;
     }
 
-    .hero-img-card img {
+    .hero-slider {
+      position: relative;
       width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.5s ease;
+      height: 100%;
     }
 
-    .hero-img-card:hover img {
-      transform: scale(1.02);
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.04);
+      filter: blur(4px);
+      transition:
+        opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      will-change: opacity, transform, filter;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0px);
+      pointer-events: auto;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Slide overlay gradient */
+    .hero-slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.25) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Prev / Next buttons */
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      opacity: 0;
+    }
+
+    .hero-img-card:hover .slider-btn {
+      opacity: 1;
+    }
+
+    .slider-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .slider-btn-prev { left: 12px; }
+    .slider-btn-next { right: 12px; }
+
+    /* Dot indicators */
+    .slider-dots {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 7px;
+      z-index: 20;
+    }
+
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.45);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: var(--transition);
+    }
+
+    .slider-dot.active {
+      background: #fff;
+      transform: scale(1.25);
+      box-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+
+    /* Progress bar */
+    .slider-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: var(--primary);
+      z-index: 20;
+      width: 0%;
+      transition: width linear;
+      border-radius: 0 3px 3px 0;
     }
 
     /* Floating Widget Cards */
@@ -513,7 +631,7 @@
       align-items: center;
       gap: 14px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      z-index: 10;
+      z-index: 30;
       animation: float 4s ease-in-out infinite alternate;
     }
 
@@ -617,11 +735,53 @@
       display: flex;
       flex-direction: column;
       height: 100%;
+      position: relative;
+    }
+
+    /* Shimmer sweep on hover */
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(
+        105deg,
+        transparent 35%,
+        rgba(56, 189, 248, 0.07) 50%,
+        transparent 65%
+      );
+      transform: translateX(-120%);
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+
+    /* Glowing top edge on hover */
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 15%;
+      width: 70%;
+      height: 2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
 
     .feature-card:hover {
+      background: var(--bg-card-hover);
       border-color: var(--border-glow);
-      transform: translateY(-4px);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(2, 132, 199, 0.18), 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-card:hover::before {
+      transform: translateX(120%);
+    }
+
+    .feature-card:hover::after {
+      opacity: 1;
     }
 
     .feature-icon-wrapper {
@@ -646,78 +806,288 @@
       color: var(--text-muted);
       font-size: 0.975rem;
       line-height: 1.6;
-      flex-grow: 1;
+      margin-bottom: 20px;
     }
 
-    /* FLAGSHIP FEATURES (HIGHLIGHT) */
-    .flagship-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-top: 40px;
-    }
-
-    .flagship-box {
-      background: linear-gradient(145deg, rgba(2, 132, 199, 0.08) 0%, rgba(15, 23, 42, 0.8) 100%);
-      border: 1px solid rgba(2, 132, 199, 0.25);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .flagship-box-amber {
-      background: linear-gradient(145deg, rgba(2, 132, 199, 0.08) 0%, rgba(15, 23, 42, 0.8) 100%);
-      border-color: rgba(2, 132, 199, 0.25);
-    }
-
-    .flagship-tag {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .tag-green { background: rgba(2, 132, 199, 0.2); color: #38bdf8; }
-    .tag-amber { background: rgba(2, 132, 199, 0.2); color: #38bdf8; }
-
-    .flagship-box h3 {
-      font-size: 1.75rem;
-      margin-bottom: 14px;
-    }
-
-    .flagship-box p {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 24px;
-      line-height: 1.6;
-    }
-
-    .flagship-list {
+    .feature-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 12px;
+      margin-top: auto;
     }
 
-    .flagship-list li {
+    .feature-list li {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 10px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--text-main);
     }
 
-    .flagship-list svg {
+    .feature-list svg {
       flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* MCP INTERACTIVE PLAYGROUND STYLES */
+    .mcp-container-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .mcp-info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .mcp-info-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 15%;
+      width: 70%;
+      height: 2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .mcp-info-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(2, 132, 199, 0.15), 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .mcp-info-card:hover::after {
+      opacity: 1;
+    }
+
+    .mcp-clients-badge {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .client-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .mcp-terminal {
+      background: #090d13;
+      border: 1px solid #30363d;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .mcp-terminal:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(56, 189, 248, 0.12), 0 0 30px rgba(2, 132, 199, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .mcp-terminal-header {
+      background: #161b22;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .mcp-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .mcp-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .mcp-dot-red { background: #ff5f56; }
+    .mcp-dot-yellow { background: #ffbd2e; }
+    .mcp-dot-green { background: #27c93f; }
+
+    .mcp-terminal-title {
+      font-size: 0.8rem;
+      color: #8b949e;
+      font-family: monospace;
+      font-weight: 600;
+    }
+
+    .mcp-tools-bar {
+      display: flex;
+      gap: 8px;
+      padding: 12px 16px;
+      background: #0d1117;
+      border-bottom: 1px solid #21262d;
+      overflow-x: auto;
+    }
+
+    .mcp-tool-btn {
+      background: #161b22;
+      color: #8b949e;
+      border: 1px solid #30363d;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .mcp-tool-btn:hover {
+      color: #f0f6fc;
+      border-color: #a855f7;
+    }
+
+    .mcp-tool-btn.active {
+      background: rgba(168, 85, 247, 0.2);
+      color: #c084fc;
+      border-color: #a855f7;
+    }
+
+    .mcp-console-body {
+      padding: 20px;
+      background: #090d13;
+      color: #e6edf3;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      min-height: 280px;
+      max-height: 380px;
+      overflow-y: auto;
+    }
+
+    .mcp-code-block {
+      background: #0d1117;
+      border: 1px solid #21262d;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      color: #a5d6ff;
+      font-family: monospace;
+      font-size: 0.825rem;
+      position: relative;
+      overflow-x: auto;
+      margin-top: 14px;
+    }
+
+    .mcp-copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #21262d;
+      color: #c9d1d9;
+      border: 1px solid #30363d;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .mcp-copy-btn:hover {
+      background: #30363d;
+      color: #ffffff;
+      border-color: #a855f7;
+    }
+
+    @media (max-width: 1024px) {
+      .mcp-container-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* PRICING SECTION */
+    .billing-toggle {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto 40px;
+      padding: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+    }
+
+    .billing-option {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .billing-option:hover {
+      color: var(--text-main);
+    }
+
+    .billing-option.active {
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    }
+
+    .billing-save-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(56, 189, 248, 0.18);
+      color: var(--primary-light);
+    }
+
+    .billing-option.active .billing-save-badge {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+    }
+
+    .price-yearly-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: -20px;
+      margin-bottom: 28px;
+    }
+
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -736,6 +1106,31 @@
       flex-direction: column;
       position: relative;
       transition: var(--transition);
+    }
+
+    /* Glow top edge for pricing cards */
+    .pricing-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 15%;
+      width: 70%;
+      height: 2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .pricing-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-glow);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(2, 132, 199, 0.18), 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .pricing-card:hover::after {
+      opacity: 1;
     }
 
     .pricing-card.popular {
@@ -807,6 +1202,23 @@
       text-decoration: line-through;
     }
 
+    .bullet-square {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bullet-square::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 3px;
+      background: var(--primary-light);
+    }
+
     .pricing-disclaimer {
       text-align: center;
       margin-top: 32px;
@@ -825,6 +1237,30 @@
       max-width: 900px;
       margin: 0 auto;
       position: relative;
+      transition: var(--transition);
+    }
+
+    .about-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 15%;
+      width: 70%;
+      height: 2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .about-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(2, 132, 199, 0.15), 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .about-card:hover::after {
+      opacity: 1;
     }
 
     .about-card p {
@@ -858,9 +1294,17 @@
       transition: var(--transition);
     }
 
+    details[name="faq"]:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-glow);
+      box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12), 0 2px 8px rgba(0, 0, 0, 0.1);
+      transform: translateX(4px);
+    }
+
     details[name="faq"][open] {
       border-color: var(--border-glow);
       background: var(--bg-card-hover);
+      box-shadow: 0 8px 24px rgba(2, 132, 199, 0.14);
     }
 
     summary {
@@ -982,7 +1426,7 @@
     }
 
     /* RESPONSIVE DESIGN */
-    @media (max-width: 1024px) {
+    @media (max-width: 992px) {
       .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1000,14 +1444,44 @@
         justify-content: center;
       }
 
-      .features-grid {
-        grid-template-columns: 1fr;
+      .mobile-toggle {
+        display: inline-flex;
       }
 
-      .flagship-wrapper {
-        grid-template-columns: 1fr;
+      .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        padding: 20px 24px;
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+        display: none;
       }
 
+      html[data-theme="light"] .nav-menu {
+        background: #ffffff;
+        border-bottom-color: #e2e8f0;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-menu.active {
+        display: flex;
+        animation: slideDown 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-link {
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .features-grid,
       .pricing-grid {
         grid-template-columns: 1fr;
       }
@@ -1018,16 +1492,30 @@
     }
 
     @media (max-width: 768px) {
-      .nav-menu {
-        display: none;
-      }
-
-      .mobile-toggle {
-        display: block;
+      .hero {
+        padding-top: 100px;
+        padding-bottom: 60px;
       }
 
       .hero-content h1 {
-        font-size: 2.25rem;
+        font-size: 2.1rem;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+      }
+
+      .stat-item h4 {
+        white-space: normal;
+        font-size: 1.15rem;
+      }
+
+      .stat-item p {
+        font-size: 0.85rem;
       }
 
       .floating-card {
@@ -1044,6 +1532,123 @@
         text-align: center;
       }
     }
+
+    /* Mobile CTA buttons - hidden by default (desktop only) */
+    .nav-mobile-cta {
+      display: none;
+    }
+
+    @media (max-width: 992px) {
+      /* Hide desktop CTA buttons in header on mobile */
+      .nav-desktop-btn {
+        display: none !important;
+      }
+
+      /* Show CTA buttons inside the dropdown nav menu */
+      .nav-mobile-cta {
+        display: flex;
+        gap: 10px;
+        padding: 12px 0 4px;
+        border-bottom: none !important;
+      }
+
+      .nav-mobile-btn {
+        flex: 1;
+        text-align: center;
+        padding: 10px 14px !important;
+        font-size: 0.9rem !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav-actions {
+        gap: 8px;
+      }
+
+      .theme-label {
+        display: none;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== SCROLL REVEAL ANIMATIONS ===== */
+    @keyframes revealUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.97);
+        filter: blur(3px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes revealLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-36px) scale(0.97);
+        filter: blur(3px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes revealRight {
+      from {
+        opacity: 0;
+        transform: translateX(36px) scale(0.97);
+        filter: blur(3px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    /* Initial hidden state — set by JS after DOMContentLoaded */
+    .reveal {
+      opacity: 0;
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal.visible {
+      animation: revealUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .reveal-left.visible {
+      animation: revealLeft 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .reveal-right.visible {
+      animation: revealRight 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* Stagger delays */
+    .reveal-delay-1  { animation-delay: 0.05s; }
+    .reveal-delay-2  { animation-delay: 0.12s; }
+    .reveal-delay-3  { animation-delay: 0.19s; }
+    .reveal-delay-4  { animation-delay: 0.26s; }
+    .reveal-delay-5  { animation-delay: 0.33s; }
+    .reveal-delay-6  { animation-delay: 0.40s; }
+    .reveal-delay-7  { animation-delay: 0.47s; }
+    .reveal-delay-8  { animation-delay: 0.54s; }
+
     /* TERMS & KETENTUAN MODAL STYLES */
     .terms-modal-overlay {
       position: fixed;
@@ -1219,43 +1824,57 @@
         </a>
 
         <ul class="nav-menu">
-          <li><a href="#fitur" class="nav-link">Fitur Utama</a></li>
+          <li><a href="#fitur" class="nav-link">Fitur</a></li>
           <li><a href="#target" class="nav-link">Target Pengguna</a></li>
-          <li><a href="#unggulan" class="nav-link">Fitur Unggulan</a></li>
           <li><a href="#harga" class="nav-link">Harga</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <!-- Mobile-only CTA buttons inside dropdown -->
+          <li class="nav-mobile-cta">
+            <a href="https://kantongajaib.id/auth/login" class="btn btn-outline nav-mobile-btn">Masuk</a>
+            <a href="https://kantongajaib.id/auth/register" class="btn btn-primary nav-mobile-btn">Mulai Gratis</a>
+          </li>
         </ul>
 
         <div class="nav-actions">
           <!-- THEME SWITCHER -->
           <div class="theme-switcher">
             <button id="theme-btn" class="theme-btn" aria-label="Pilih Tema Warna" title="Pilih Tema Warna">
-              <span id="theme-icon">💻</span>
-              <span id="theme-label" class="theme-label">System</span>
+              <span id="theme-icon" class="theme-icon-svg"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></span>
+              <span id="theme-label" class="theme-label">Sistem</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div id="theme-dropdown" class="theme-dropdown">
               <button data-theme-value="system" class="theme-option active">
-                <span>💻</span> System
+                <span class="theme-icon-svg"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></span> Sistem
               </button>
               <button data-theme-value="dark" class="theme-option">
-                <span>🌙</span> Dark
+                <span class="theme-icon-svg"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span> Gelap
               </button>
               <button data-theme-value="light" class="theme-option">
-                <span>☀️</span> Light
+                <span class="theme-icon-svg"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line></svg></span> Terang
               </button>
             </div>
           </div>
 
-          <a href="https://kantongajaib.id/auth/login" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.9rem;">Masuk</a>
-          <a href="https://kantongajaib.id/auth/register" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.9rem;">Mulai Gratis</a>
+          <!-- Desktop-only CTA buttons -->
+          <a href="https://kantongajaib.id/auth/login" class="btn btn-outline nav-desktop-btn" style="padding: 8px 18px; font-size: 0.9rem;">Masuk</a>
+          <a href="https://kantongajaib.id/auth/register" class="btn btn-primary nav-desktop-btn" style="padding: 8px 18px; font-size: 0.9rem;">Mulai Gratis</a>
+
+          <!-- HAMBURGER MENU BUTTON (GARIS TIGA) -->
+          <button id="mobile-toggle" class="mobile-toggle" aria-label="Buka Menu Navigasi" title="Buka Menu Navigasi">
+            <svg id="hamburger-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
         </div>
       </nav>
     </div>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero">
+  <section id="tentang" class="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
@@ -1266,10 +1885,10 @@
             <span>🚀 Bye-Bye Keuangan Amburadul & Bocor Halus</span>
           </div>
 
-          <h1>Catat Keuangan Tanpa Drama Bersama <span class="text-gradient">KantongAjaib</span></h1>
+          <h1>Catat Keuangan, Nggak Perlu Ribet dengan <span class="text-gradient">KantongAjaib</span></h1>
           
           <p>
-            Pernah bingung uang gajian atau hasil jualan mendadak 'gaib'? KantongAjaib hadir buat bantu kamu—mulai dari pedagang, ibu rumah tangga, mahasiswa, karyawan, sampai UMKM—pantau arus kas & utang piutang tanpa pusing rumus akuntansi!
+            Pernah merasa uang masuk dan keluar begitu saja tanpa tahu ke mana perginya? KantongAjaib membantu kamu mencatat pemasukan, pengeluaran, dan utang piutang dengan cara yang simpel dan praktis. Biar keuangan lebih rapi, lebih jelas, dan lebih mudah dikontrol.
           </p>
 
           <div class="hero-buttons">
@@ -1285,45 +1904,92 @@
 
           <div class="hero-stats">
             <div class="stat-item">
-              <h4>100%</h4>
-              <p>Praktis & Anti-Ribet</p>
+              <h4>Praktis</h4>
+              <p>Catat keuangan dengan mudah</p>
             </div>
             <div class="stat-item">
-              <h4>Multi Kas</h4>
-              <p>Pisah Dompet Real-time</p>
+              <h4>Rapi & Teratur</h4>
+              <p>Kelola pemasukan dan pengeluaran</p>
             </div>
             <div class="stat-item">
-              <h4>e-Invoice</h4>
-              <p>Faktur Sekali Klik</p>
+              <h4>Jelas & Terkontrol</h4>
+              <p>Pantau kondisi keuangan Anda</p>
             </div>
           </div>
         </div>
 
         <div class="hero-preview">
           <!-- Floating Widget 1 -->
-          <div class="floating-card floating-card-1">
-            <div class="card-icon icon-green">
+          <div class="floating-card floating-card-1" id="floatCard1">
+            <div class="card-icon icon-green" id="floatIcon1">
               💰
             </div>
             <div class="card-info">
-              <h5>Pemasukan Penjualan</h5>
-              <p>+ Rp 1.250.000</p>
+              <h5 id="floatTitle1">Pemasukan Penjualan</h5>
+              <p id="floatDesc1">+ Rp 1.250.000</p>
             </div>
           </div>
 
-          <!-- Hero Image Card -->
-          <div class="hero-img-card">
-            <img src="assets/hero-app.jpg" alt="Dashboard Aplikasi KantongAjaib" width="800" height="450">
+          <!-- Hero Slideshow -->
+          <div class="hero-img-card" id="heroSlider">
+            <div class="hero-slider">
+
+              <!-- Slide 1: Pria pedagang pakai HP -->
+              <div class="hero-slide active">
+                <img src="assets/hero-slide1.jpg" alt="Pedagang kaki lima mencatat keuangan lewat aplikasi" loading="eager">
+              </div>
+
+              <!-- Slide 2: Wanita nulis + laptop -->
+              <div class="hero-slide">
+                <img src="assets/hero-slide2.jpg" alt="Karyawan mencatat keuangan harian dengan laptop" loading="lazy">
+              </div>
+
+              <!-- Slide 3: Ibu pemilik warung + HP -->
+              <div class="hero-slide">
+                <img src="assets/hero-slide3.jpg" alt="Pemilik warung memantau keuangan usaha dengan HP" loading="lazy">
+              </div>
+
+              <!-- Slide 4: Wanita kacamata + MacBook + nota -->
+              <div class="hero-slide">
+                <img src="assets/hero-slide4.jpg" alt="Wanita mencatat keuangan dengan laptop dan nota" loading="lazy">
+              </div>
+
+              <!-- Slide 5: Wanita batik di dapur pakai HP -->
+              <div class="hero-slide">
+                <img src="assets/hero-slide5.jpg" alt="Ibu rumah tangga mengatur keuangan keluarga" loading="lazy">
+              </div>
+
+              <!-- Prev / Next -->
+              <button class="slider-btn slider-btn-prev" aria-label="Slide sebelumnya" id="sliderPrev">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="slider-btn slider-btn-next" aria-label="Slide berikutnya" id="sliderNext">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+
+              <!-- Dots (5 titik) -->
+              <div class="slider-dots" role="tablist" aria-label="Navigasi slide">
+                <button class="slider-dot active" data-index="0" role="tab" aria-label="Slide 1"></button>
+                <button class="slider-dot" data-index="1" role="tab" aria-label="Slide 2"></button>
+                <button class="slider-dot" data-index="2" role="tab" aria-label="Slide 3"></button>
+                <button class="slider-dot" data-index="3" role="tab" aria-label="Slide 4"></button>
+                <button class="slider-dot" data-index="4" role="tab" aria-label="Slide 5"></button>
+              </div>
+
+              <!-- Progress bar -->
+              <div class="slider-progress" id="sliderProgress"></div>
+
+            </div>
           </div>
 
           <!-- Floating Widget 2 -->
-          <div class="floating-card floating-card-2">
-            <div class="card-icon icon-amber">
+          <div class="floating-card floating-card-2" id="floatCard2">
+            <div class="card-icon icon-amber" id="floatIcon2">
               📄
             </div>
             <div class="card-info">
-              <h5>e-Invoice Lunas</h5>
-              <p>Faktur Terbuat Rapi</p>
+              <h5 id="floatTitle2">e-Invoice & e-Quotation</h5>
+              <p id="floatDesc2">Dokumen Digital Rapi</p>
             </div>
           </div>
         </div>
@@ -1368,7 +2034,7 @@
         <div class="target-card">
           <div class="target-emoji">🛍️</div>
           <h3>Usaha Mikro (UMKM)</h3>
-          <p>Kirim e-Invoice & e-Quotation profesional ke pembeli secara instan, plus tagih utang tanpa baper.</p>
+          <p>Kirim e-Invoice, e-Quotation & e-Kuitansi profesional ke pembeli secara instan, plus tagih utang tanpa baper.</p>
         </div>
 
         <div class="target-card">
@@ -1396,7 +2062,7 @@
   <section id="fitur" class="section">
     <div class="container">
       <div class="section-header">
-        <div class="badge">Fitur Utama</div>
+        <div class="badge">Fitur KantongAjaib</div>
         <h2>Semua Fitur Penting, <span class="text-gradient">Tinggal Pakai</span></h2>
         <p>Fitur pencatatan esensial yang didesain simpel & to the point. Nggak bikin kamu pusing!</p>
       </div>
@@ -1409,8 +2075,22 @@
               <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
             </svg>
           </div>
-          <h3>Pencatatan Uang Masuk & Keluar</h3>
+          <h3>Pencatatan<br>Uang Masuk & Keluar</h3>
           <p>Masukkan transaksi dalam hitungan detik. Langsung kelihatan ke mana aliran uangmu pergi.</p>
+          <ul class="feature-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Catat pemasukan & pengeluaran dalam hitungan detik
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Kategori transaksi otomatis tersusun rapi
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Laporan arus kas real-time kapan saja
+            </li>
+          </ul>
         </div>
 
         <!-- Feature 2 -->
@@ -1421,8 +2101,22 @@
               <line x1="2" y1="10" x2="22" y2="10"></line>
             </svg>
           </div>
-          <h3>Buku Kas (Kantongku)</h3>
+          <h3>KantongKu<br>(Buku Kas)</h3>
           <p>Pisah-pisahkan dompet keuangan sesuai posnya. Ada Kantong Utama, Tabungan, sampai Kantong Modal.</p>
+          <ul class="feature-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Buat kantong sebanyak yang kamu butuhkan
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Pindah dana antar kantong dengan mudah
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Saldo tiap kantong selalu update otomatis
+            </li>
+          </ul>
         </div>
 
         <!-- Feature 3 -->
@@ -1434,63 +2128,104 @@
               <polyline points="17 11 19 13 23 9"></polyline>
             </svg>
           </div>
-          <h3>Pencatatan Utang & Piutang</h3>
+          <h3>Pencatatan<br>Utang & Piutang</h3>
           <p>Catat siapa yang pinjam uang & kapan harus bayar. Hubungan tetap adem, keuangan tetap aman.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FLAGSHIP FEATURES (FITUR UNGGULAN) -->
-  <section id="unggulan" class="section">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge badge-amber">⭐ Fitur Unggulan</div>
-        <h2>Fitur Spesial Bikin <span class="text-amber-gradient">Hidup Makin Nyaman</span></h2>
-        <p>Bikin bisnismu makin berkelas dan pengelolaan keuangan tercatat rapi.</p>
-      </div>
-
-      <div class="flagship-wrapper">
-        <!-- Flagship 1 -->
-        <div class="flagship-box">
-          <span class="flagship-tag tag-green">Dokumen Digital Instant</span>
-          <h3>e-Invoice, e-Quotation & e-Receipt</h3>
-          <p>Bikin penawaran harga (Quotation), faktur tagihan (Invoice), dan bukti pembayaran (Receipt) digital yang estetik dan instan!</p>
-          
-          <ul class="flagship-list">
+          <ul class="feature-list">
             <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Catat detail utang & piutang per kontak
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Pengingat jatuh tempo pembayaran
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Riwayat pelunasan tercatat lengkap
+            </li>
+          </ul>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <h3>e-Quotation, e-Invoice<br>& e-Kuitansi</h3>
+          <p>Bikin penawaran harga (e-Quotation), faktur tagihan (e-Invoice), dan bukti pembayaran (e-Kuitansi) digital yang estetik dan instan. Semua dokumen otomatis tersimpan rapi dan siap dikirim ke pelanggan!</p>
+          <ul class="feature-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               Format rapi & siap cetak atau simpan PDF
             </li>
             <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               Status pembayaran pelanggan terpantau jelas
             </li>
             <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               Cepat dibuat dari HP tanpa perlu laptop
             </li>
           </ul>
         </div>
 
-        <!-- Flagship 2 -->
-        <div class="flagship-box flagship-box-amber">
-          <span class="flagship-tag tag-amber">Kecerdasan Buatan (AI)</span>
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <polyline points="1 20 1 14 7 14"></polyline>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+          </div>
           <h3>Rekonsiliasi Keuangan Otomatis</h3>
           <p>Nggak perlu pusing mencocokkan mutasi kas dan transaksi secara manual. Teknologi AI membantu proses rekonsiliasi data keuangan kamu secara otomatis, cepat, dan akurat!</p>
-          
-          <ul class="flagship-list">
+          <ul class="feature-list">
             <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               Pencocokan mutasi kas & transaksi secara otomatis
             </li>
             <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               Deteksi selisih & transaksi ganda secara presisi
             </li>
             <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               Hemat waktu pembukuan tanpa perlu rumus rumit
+            </li>
+          </ul>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+          </div>
+          <h3>Modul MCP (Model Context Protocol)</h3>
+          <p>Hubungkan pembukuan KantongAjaib secara langsung dengan Claude.ai. Analisis kas & posting transaksi otomatis cukup dengan mengunggah foto/file struk pembayaran!</p>
+          <ul class="feature-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Eksekusi Tool AI Real-time untuk Cek Kas & Arus Uang
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Posting Transaksi Otomatis via Upload Struk Pembayaran
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Terisolasi Aman End-to-End Khusus Akun Terdaftar KantongAjaib.id
             </li>
           </ul>
         </div>
@@ -1507,6 +2242,13 @@
         <p>Pilih paket yang paling pas dengan kebutuhan pencatatan harian atau usahamu.</p>
       </div>
 
+      <div class="billing-toggle" role="tablist" aria-label="Pilih Siklus Tagihan">
+        <button type="button" class="billing-option active" data-billing="monthly" role="tab" aria-selected="true">Bulanan</button>
+        <button type="button" class="billing-option" data-billing="quarterly" role="tab" aria-selected="false">3 Bulan <span class="billing-save-badge">Hemat 5%</span></button>
+        <button type="button" class="billing-option" data-billing="semiannual" role="tab" aria-selected="false">6 Bulan <span class="billing-save-badge">Hemat 10%</span></button>
+        <button type="button" class="billing-option" data-billing="yearly" role="tab" aria-selected="false">Tahunan <span class="billing-save-badge">Hemat 25%</span></button>
+      </div>
+
       <div class="pricing-grid">
         <!-- KANTONG GRATIS -->
         <div class="pricing-card">
@@ -1521,32 +2263,36 @@
 
           <ul class="pricing-features">
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span><strong>1</strong> Buku kas (kantongku)</span>
+              <span class="bullet-square"></span>
+              <span>KantongKu (Buku Kas) : <strong>1</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span><strong>10</strong> Transaksi pendapatan / bulan</span>
+              <span class="bullet-square"></span>
+              <span>Transaksi pendapatan : <strong>10 / bulan</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span><strong>10</strong> Transaksi pengeluaran / bulan</span>
+              <span class="bullet-square"></span>
+              <span>Transaksi pengeluaran : <strong>10 / bulan</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span><strong>10</strong> Transaksi utang & piutang / bulan</span>
+              <span class="bullet-square"></span>
+              <span>Transaksi utang & piutang : <strong>10 / bulan</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Maksimal <strong>25</strong> Kontak tersimpan</span>
+              <span class="bullet-square"></span>
+              <span>Jumlah kontak tersimpan : <strong>Maksimal 25</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>e-Invoice, e-Quotation & e-Receipt (Masing-masing 1/bulan)</span>
+              <span class="bullet-square"></span>
+              <span>e-Invoice, e-Quotation & e-Kuitansi : <strong>Masing-masing 1 / bulan</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-              <span>Akun dihapus jika tidak aktif 1 bulan</span>
+              <span class="bullet-square"></span>
+              <span>Integrasi Server MCP & Auto-Post Struk via Claude.ai : <strong>Maksimal 10x prompt / bulan</strong></span>
+            </li>
+            <li>
+              <span class="bullet-square"></span>
+              <span>Masa aktif akun : <strong>Dihapus jika tidak aktif 1 bulan</strong></span>
             </li>
           </ul>
 
@@ -1563,37 +2309,44 @@
           </div>
 
           <div class="price-value">
-            Rp 25.000 <span class="price-period">/ bulan</span>
+            <span class="price-amount" data-billing="monthly">Rp 25.000</span><span class="price-amount" data-billing="quarterly" hidden>Rp 71.250</span><span class="price-amount" data-billing="semiannual" hidden>Rp 135.000</span><span class="price-amount" data-billing="yearly" hidden>Rp 225.000</span> <span class="price-period" data-billing="monthly">/ bulan</span><span class="price-period" data-billing="quarterly" hidden>/ 3 bulan</span><span class="price-period" data-billing="semiannual" hidden>/ 6 bulan</span><span class="price-period" data-billing="yearly" hidden>/ tahun</span>
           </div>
+          <p class="price-yearly-note" data-billing="quarterly" hidden>Setara Rp 23.750 / bulan, hemat 5% dibanding paket bulanan.</p>
+          <p class="price-yearly-note" data-billing="semiannual" hidden>Setara Rp 22.500 / bulan, hemat 10% dibanding paket bulanan.</p>
+          <p class="price-yearly-note" data-billing="yearly" hidden>Setara Rp 18.750 / bulan, hemat 25% dibanding paket bulanan.</p>
 
           <ul class="pricing-features">
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span><strong>10</strong> Buku kas (kantongku)</span>
+              <span class="bullet-square"></span>
+              <span>KantongKu (Buku Kas) : <strong>UNLIMITED</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span class="bullet-square"></span>
               <span>Transaksi pendapatan : <strong>UNLIMITED</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span class="bullet-square"></span>
               <span>Transaksi pengeluaran : <strong>UNLIMITED</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span class="bullet-square"></span>
               <span>Transaksi utang & piutang : <strong>UNLIMITED</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Jumlah kontak : <strong>UNLIMITED</strong></span>
+              <span class="bullet-square"></span>
+              <span>Jumlah kontak tersimpan : <strong>UNLIMITED</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>e-Invoice, e-Quotation & e-Receipt : <strong>UNLIMITED</strong></span>
+              <span class="bullet-square"></span>
+              <span>e-Invoice, e-Quotation & e-Kuitansi : <strong>UNLIMITED</strong></span>
             </li>
             <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              <span>Masa aktif aman : Dihapus jika tidak aktif 1 tahun</span>
+              <span class="bullet-square"></span>
+              <span>Integrasi Server MCP & Auto-Post Struk via Claude.ai : <strong>UNLIMITED / menyesuaikan paket AI</strong></span>
+            </li>
+            <li>
+              <span class="bullet-square"></span>
+              <span>Masa aktif akun : <strong>Dihapus jika tidak aktif 1 tahun</strong></span>
             </li>
           </ul>
 
@@ -1638,7 +2391,7 @@
         <details name="faq">
           <summary>3. Apa saja yang bisa dilakukan dengan KantongAjaib?</summary>
           <div class="faq-answer">
-            Banyak hal praktis! Kamu bisa catat uang masuk & keluar, pisahkan dompet di Buku Kas, kelola utang piutang, serta buat e-Invoice & e-Quotation profesional.
+            Banyak hal praktis! Kamu bisa catat uang masuk & keluar, pisahkan dompet di Buku Kas, kelola utang piutang, serta buat e-Invoice, e-Quotation & e-Kuitansi profesional.
           </div>
         </details>
 
@@ -1689,6 +2442,14 @@
             Karena tahu ke mana uangmu pergi adalah langkah pertama buat keuangan yang lebih sehat. KantongAjaib bantu kamu pantau keuangan tanpa perlu pembukuan yang rumit dan bikin pusing!
           </div>
         </details>
+
+        <!-- Q10 -->
+        <details name="faq">
+          <summary>10. Apa itu Modul MCP KantongAjaib & Bagaimana Cara Kerjanya?</summary>
+          <div class="faq-answer">
+            Modul MCP (Model Context Protocol) adalah standar integrasi AI resmi yang memungkinkan <strong>Claude.ai</strong> berkomunikasi secara aman dengan pembukuan KantongAjaib. Anda tinggal bertanya <em>"Berapa sisa kas bulan ini?"</em> atau mengunggah foto struk belanjaan ke chat Claude, dan AI akan menganalisis serta mengunggah transaksi tersebut secara otomatis ke Buku Kas Anda!
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -1722,33 +2483,27 @@
           <h5 class="footer-title">Fitur</h5>
           <ul class="footer-links">
             <li><a href="#fitur">Pencatatan Transaksi</a></li>
-            <li><a href="#fitur">Buku Kas (Kantongku)</a></li>
+            <li><a href="#fitur">KantongKu (Buku Kas)</a></li>
             <li><a href="#fitur">Utang Piutang</a></li>
-            <li><a href="#unggulan">e-Invoice & Receipt</a></li>
-            <li><a href="#unggulan">Rekonsiliasi AI</a></li>
+            <li><a href="#fitur">e-Invoice, e-Quotation & e-Kuitansi</a></li>
+            <li><a href="#fitur">Rekonsiliasi AI</a></li>
+            <li><a href="#fitur">Modul MCP</a></li>
           </ul>
         </div>
 
         <div>
-          <h5 class="footer-title">Target Pengguna</h5>
+          <h5 class="footer-title">Info</h5>
           <ul class="footer-links">
-            <li><a href="#target">Pedagang Kaki Lima</a></li>
-            <li><a href="#target">Ibu Rumah Tangga</a></li>
-            <li><a href="#target">Pelajar & Mahasiswa</a></li>
-            <li><a href="#target">Karyawan</a></li>
-            <li><a href="#target">Usaha Mikro (UMKM)</a></li>
-            <li><a href="#target">Freelancer & Pekerja Lepas</a></li>
-            <li><a href="#target">Komunitas & Organisasi</a></li>
-            <li><a href="#target">DKM Masjid</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h5 class="footer-title">Navigasi</h5>
-          <ul class="footer-links">
-            <li><a href="#tentang">Tentang Kami</a></li>
             <li><a href="#harga">Pilihan Paket</a></li>
             <li><a href="#faq">FAQ</a></li>
+            <li><a href="mailto:infocashidofficial@gmail.com">Hubungi Kami</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-title">Perusahaan</h5>
+          <ul class="footer-links">
+            <li><a href="#tentang">Tentang Kami</a></li>
             <li><a href="#syarat">Syarat & Ketentuan</a></li>
             <li><a href="#privasi">Kebijakan Privasi</a></li>
           </ul>
@@ -1806,7 +2561,7 @@
             <li>Pencatatan transaksi uang masuk dan uang keluar;</li>
             <li>Buku Kas ("Kantongku") untuk memisahkan pos-pos keuangan (Kantong Utama, Tabungan, Kantong Modal, dan lainnya);</li>
             <li>Pencatatan utang piutang;</li>
-            <li>Pembuatan dokumen digital berupa e-Invoice, e-Quotation, dan e-Receipt;</li>
+            <li>Pembuatan dokumen digital berupa e-Invoice, e-Quotation, dan e-Kuitansi;</li>
             <li>Rekonsiliasi transaksi berbasis kecerdasan buatan (AI);</li>
             <li>Fitur lain yang dapat ditambahkan, diubah, atau dihentikan oleh Kami dari waktu ke waktu.</li>
           </ul>
@@ -1824,16 +2579,16 @@
           <h3>3. Paket Layanan dan Biaya</h3>
           <ol>
             <li>KantongAjaib menyediakan paket Kantong Gratis dan paket Kantong Pintar (berbayar), dengan ketentuan fitur dan batasan sebagaimana dijelaskan pada halaman Harga di situs kami.</li>
-            <li>Paket Kantong Gratis memiliki batasan, antara lain jumlah buku kas, jumlah transaksi per bulan, jumlah kontak tersimpan, dan jumlah dokumen digital (e-Invoice/e-Quotation/e-Receipt) per bulan.</li>
+            <li>Paket Kantong Gratis memiliki batasan, antara lain jumlah buku kas, jumlah transaksi per bulan, jumlah kontak tersimpan, dan jumlah dokumen digital (e-Invoice/e-Quotation/e-Kuitansi) per bulan.</li>
             <li>Akun pada paket Kantong Gratis yang tidak aktif selama 1 (satu) bulan berturut-turut berpotensi dihapus oleh sistem. Akun pada paket Kantong Pintar yang tidak aktif selama 1 (satu) tahun berturut-turut berpotensi dihapus oleh sistem. "Tidak aktif" berarti tidak ada aktivitas login maupun transaksi dalam jangka waktu tersebut.</li>
             <li>Biaya paket berbayar, metode pembayaran, dan periode tagihan akan ditampilkan secara jelas pada saat Anda memilih atau memperbarui paket. Nominal harga dapat berubah sewaktu-waktu sesuai kebijakan Kami, dan perubahan akan diinformasikan sebelum berlaku efektif bagi pelanggan yang sudah berlangganan.</li>
             <li>Kecuali dinyatakan lain, biaya berlangganan yang telah dibayarkan tidak dapat dikembalikan (non-refundable), termasuk apabila Anda berhenti menggunakan layanan sebelum masa berlangganan berakhir.</li>
             <li>Kegagalan pembayaran dapat mengakibatkan penurunan otomatis ke paket Kantong Gratis atau pembatasan akses terhadap fitur berbayar.</li>
           </ol>
 
-          <h3>4. Fitur e-Invoice, e-Quotation, dan e-Receipt</h3>
+          <h3>4. Fitur e-Invoice, e-Quotation, dan e-Kuitansi</h3>
           <ol>
-            <li>Dokumen digital (e-Invoice, e-Quotation, e-Receipt) yang dibuat melalui KantongAjaib disusun berdasarkan data yang Anda masukkan sendiri.</li>
+            <li>Dokumen digital (e-Invoice, e-Quotation, e-Kuitansi) yang dibuat melalui KantongAjaib disusun berdasarkan data yang Anda masukkan sendiri.</li>
             <li>Anda bertanggung jawab penuh atas kebenaran, keakuratan, dan keabsahan informasi yang tercantum dalam dokumen tersebut, termasuk namun tidak terbatas pada nominal, identitas pihak, dan keterangan transaksi.</li>
             <li>KantongAjaib hanya menyediakan sarana pembuatan dokumen, dan tidak bertindak sebagai pihak dalam transaksi antara Anda dan pelanggan/mitra Anda, serta tidak bertanggung jawab atas sengketa yang timbul dari transaksi tersebut.</li>
           </ol>
@@ -1844,7 +2599,7 @@
             <li>Menggunakan KantongAjaib hanya untuk tujuan pencatatan keuangan yang sah dan sesuai dengan hukum yang berlaku di Indonesia;</li>
             <li>Tidak menggunakan layanan untuk aktivitas pencucian uang, penipuan, penggelapan pajak, atau tindak pidana lainnya;</li>
             <li>Tidak mencoba meretas, membongkar (reverse-engineer), mengganggu sistem, atau mengakses data pengguna lain tanpa izin;</li>
-            <li>Tidak menyalahgunakan fitur e-Invoice/e-Quotation/e-Receipt untuk membuat dokumen palsu atau menyesatkan;</li>
+            <li>Tidak menyalahgunakan fitur e-Invoice/e-Quotation/e-Kuitansi untuk membuat dokumen palsu atau menyesatkan;</li>
             <li>Bertanggung jawab penuh atas keakuratan seluruh data keuangan yang Anda masukkan, karena KantongAjaib bersifat sebagai alat bantu pencatatan, bukan penjamin kebenaran data.</li>
           </ol>
           <p>Kami berhak menangguhkan atau menghentikan akun yang terbukti melanggar ketentuan di atas, tanpa mengurangi hak Kami untuk menempuh upaya hukum lain yang diperlukan.</p>
@@ -1901,7 +2656,7 @@
           <h3>13. Kontak Kami</h3>
           <p>Apabila Anda memiliki pertanyaan mengenai Syarat dan Ketentuan ini, silakan hubungi Kami melalui:</p>
           <ul>
-            <li>Email: <a href="mailto:infocashidofficial@fmail.com" style="color: var(--primary-light);">infocashidofficial@fmail.com</a></li>
+            <li>Email: <a href="mailto:infocashidofficial@gmail.com" style="color: var(--primary-light);">infocashidofficial@gmail.com</a></li>
             <li>Atau melalui saluran bantuan resmi yang tersedia di dalam aplikasi atau situs KantongAjaib.id.</li>
           </ul>
         </article>
@@ -1962,7 +2717,7 @@
             <li>Nama dan alamat email saat pendaftaran akun;</li>
             <li>Kata sandi (disimpan dalam bentuk terenkripsi);</li>
             <li>Data keuangan yang Anda catat secara mandiri, seperti transaksi pemasukan dan pengeluaran, saldo Buku Kas ("Kantongku"), catatan utang piutang;</li>
-            <li>Informasi pihak ketiga yang Anda masukkan untuk keperluan dokumen digital, misalnya nama, alamat, dan nomor kontak pelanggan pada e-Invoice, e-Quotation, atau e-Receipt;</li>
+            <li>Informasi pihak ketiga yang Anda masukkan untuk keperluan dokumen digital, misalnya nama, alamat, dan nomor kontak pelanggan pada e-Invoice, e-Quotation, atau e-Kuitansi;</li>
             <li>Informasi pembayaran saat Anda berlangganan paket Kantong Pintar (data ini umumnya diproses oleh mitra penyedia pembayaran, bukan disimpan langsung oleh Kami — lihat Pasal 4);</li>
             <li>Komunikasi yang Anda kirimkan kepada Kami, misalnya melalui email dukungan.</li>
           </ul>
@@ -1977,7 +2732,7 @@
           <h3>2. Tujuan Penggunaan Data</h3>
           <p>Kami menggunakan data yang dikumpulkan untuk:</p>
           <ol>
-            <li>Menyediakan, mengoperasikan, dan memelihara fitur-fitur KantongAjaib, termasuk pencatatan transaksi, Buku Kas, utang piutang, dan e-Invoice/e-Quotation/e-Receipt;</li>
+            <li>Menyediakan, mengoperasikan, dan memelihara fitur-fitur KantongAjaib, termasuk pencatatan transaksi, Buku Kas, utang piutang, dan e-Invoice/e-Quotation/e-Kuitansi;</li>
             <li>Memverifikasi identitas Anda dan mengelola akun serta status paket berlangganan;</li>
             <li>Memproses pembayaran untuk paket berbayar (Kantong Pintar);</li>
             <li>Memberikan dukungan pelanggan dan merespons pertanyaan atau keluhan Anda;</li>
@@ -2003,10 +2758,20 @@
             <li><strong>Kewajiban hukum</strong> — apabila diwajibkan oleh hukum, perintah pengadilan, atau permintaan resmi dari instansi pemerintah yang berwenang.</li>
             <li><strong>Transaksi bisnis</strong> — apabila terjadi merger, akuisisi, atau penjualan aset, data dapat dialihkan sebagai bagian dari transaksi tersebut, dengan tetap tunduk pada Kebijakan Privasi ini atau kebijakan setara yang akan diinformasikan kepada Anda.</li>
             <li><strong>Dengan persetujuan Anda</strong> — untuk tujuan lain yang secara eksplisit Anda setujui.</li>
+            <li><strong>Layanan Kecerdasan Buatan (AI) Pihak Ketiga</strong> — pemrosesan data melalui integrasi Claude.ai dan Modul MCP diatur secara khusus dan terpisah pada Poin 5.</li>
           </ol>
-          <p>Dokumen digital yang Anda buat (e-Invoice, e-Quotation, e-Receipt) dan Anda pilih untuk dikirim melalui PDF atau dicetak akan dibagikan kepada penerima sesuai instruksi Anda sendiri.</p>
+          <p>Dokumen digital yang Anda buat (e-Invoice, e-Quotation, e-Kuitansi) dan Anda pilih untuk dikirim melalui PDF atau dicetak akan dibagikan kepada penerima sesuai instruksi Anda sendiri.</p>
 
-          <h3>5. Penyimpanan dan Keamanan Data</h3>
+          <h3>5. Penggunaan Data oleh Layanan AI Pihak Ketiga (Claude.ai) & Modul MCP</h3>
+          <p>Layanan KantongAjaib menyediakan fitur integrasi dengan layanan kecerdasan buatan (AI) pihak ketiga, yaitu <strong>Claude.ai</strong> (dikembangkan oleh Anthropic PBC), seperti untuk analisis keuangan via Modul MCP dan pemrosesan otomatis struk pembayaran.</p>
+          <ol>
+            <li><strong>Batas Tanggung Jawab Keamanan:</strong> Seluruh bentuk pengamanan dan perlindungan data selama berada di dalam ekosistem dan platform KantongAjaib.id berada dalam jaminan perlindungan keamanan Kami. Namun demikian, Claude.ai merupakan aplikasi pihak ketiga yang beroperasi secara mandiri di luar kendali dan sistem internal Kami.</li>
+            <li><strong>Isolasi Keamanan Modul MCP & Autentikasi Akun:</strong> Modul MCP (Model Context Protocol) KantongAjaib beroperasi dalam lingkungan terisolasi dengan keamanan enkripsi end-to-end (E2EE), serta <strong>hanya dapat diakses dan digunakan oleh akun yang terdaftar secara resmi di KantongAjaib.id</strong> melalui token otentikasi/API Key khusus.</li>
+            <li><strong>Pelepasan Tanggung Jawab Penggunaan Data Pihak Ketiga:</strong> Kami <strong>tidak bertanggung jawab</strong> atas segala bentuk pengumpulan, penggunaan, penyimpanan, pemrosesan, atau pengelolaan data yang dilakukan oleh pihak ketiga (dalam hal ini Claude.ai / Anthropic).</li>
+            <li><strong>Himbauan Membaca Kebijakan Privasi Claude.ai:</strong> Pengguna sangat dianjurkan untuk membaca dan memahami terlebih dahulu Kebijakan Privasi (Privacy Policy) resmi Claude.ai (<a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--primary-light); text-decoration: underline;">Anthropic Privacy Policy</a>) untuk memahami lebih jelas bagaimana data Anda dikelola oleh pihak Anthropic.</li>
+          </ol>
+
+          <h3>6. Penyimpanan dan Keamanan Data</h3>
           <ol>
             <li>Kami menerapkan langkah-langkah teknis dan organisasi yang wajar untuk melindungi data pribadi Anda dari akses, perubahan, pengungkapan, atau perusakan yang tidak sah, termasuk enkripsi kata sandi dan pembatasan akses internal.</li>
             <li>Meskipun demikian, tidak ada sistem elektronik yang sepenuhnya bebas dari risiko. Kami akan berupaya sebaik mungkin untuk melindungi data Anda, namun tidak dapat menjamin keamanan mutlak atas data yang ditransmisikan melalui internet.</li>
@@ -2014,7 +2779,7 @@
             <li>Jika Anda menghapus akun secara mandiri, Kami akan menghapus atau menganonimkan data pribadi Anda dalam jangka waktu yang wajar, kecuali data yang wajib dipertahankan untuk kepentingan hukum, penyelesaian sengketa, atau penegakan Syarat dan Ketentuan.</li>
           </ol>
 
-          <h3>6. Hak Anda sebagai Pemilik Data</h3>
+          <h3>7. Hak Anda sebagai Pemilik Data</h3>
           <p>Sesuai dengan UU PDP dan peraturan terkait, Anda memiliki hak untuk:</p>
           <ol>
             <li>Mengakses dan memperoleh salinan data pribadi yang Kami simpan tentang Anda;</li>
@@ -2025,24 +2790,24 @@
             <li>Memindahkan data Anda (portabilitas data) ke penyedia layanan lain sepanjang secara teknis memungkinkan;</li>
             <li>Mengajukan keberatan atau keluhan terkait pemrosesan data pribadi Anda kepada Kami maupun kepada otoritas pengawas yang berwenang.</li>
           </ol>
-          <p>Untuk menggunakan hak-hak di atas, Anda dapat menghubungi Kami melalui kontak pada Pasal 10.</p>
+          <p>Untuk menggunakan hak-hak di atas, Anda dapat menghubungi Kami melalui kontak pada Pasal 11.</p>
 
-          <h3>7. Cookie dan Teknologi Serupa</h3>
+          <h3>8. Cookie dan Teknologi Serupa</h3>
           <ol>
             <li>Situs dan aplikasi KantongAjaib dapat menggunakan cookie atau teknologi serupa untuk menjaga sesi login, mengingat preferensi tampilan (misalnya mode terang/gelap), dan menganalisis penggunaan situs secara agregat.</li>
             <li>Anda dapat mengatur browser Anda untuk menolak cookie, namun hal ini berpotensi memengaruhi fungsi tertentu pada layanan Kami.</li>
           </ol>
 
-          <h3>8. Data Anak</h3>
+          <h3>9. Data Anak</h3>
           <p>KantongAjaib tidak ditujukan untuk digunakan oleh anak-anak di bawah usia yang ditetapkan dalam Syarat dan Ketentuan tanpa pengawasan orang tua/wali. Kami tidak dengan sengaja mengumpulkan data pribadi dari anak-anak di luar konteks tersebut. Apabila Kami mengetahui adanya data pribadi anak yang dikumpulkan tanpa persetujuan orang tua/wali yang sah, Kami akan mengambil langkah untuk menghapus data tersebut.</p>
 
-          <h3>9. Perubahan Kebijakan Privasi</h3>
+          <h3>10. Perubahan Kebijakan Privasi</h3>
           <p>Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu untuk mencerminkan perubahan layanan, teknologi, atau ketentuan hukum yang berlaku. Versi terbaru akan selalu tersedia pada halaman ini dengan tanggal pembaruan yang tertera di bagian atas. Untuk perubahan yang bersifat material, Kami akan berupaya memberikan pemberitahuan yang wajar, misalnya melalui email atau notifikasi dalam aplikasi. Penggunaan layanan secara terus-menerus setelah perubahan berlaku dianggap sebagai persetujuan Anda atas kebijakan yang telah diperbarui.</p>
 
-          <h3>10. Kontak Kami</h3>
+          <h3>11. Kontak Kami</h3>
           <p>Apabila Anda memiliki pertanyaan, permintaan, atau keluhan terkait Kebijakan Privasi ini atau pemrosesan data pribadi Anda, silakan hubungi Kami melalui:</p>
           <ul>
-            <li>Email: <a href="mailto:infocashidofficial@fmail.com" style="color: var(--primary-light);">infocashidofficial@fmail.com</a></li>
+            <li>Email: <a href="mailto:infocashidofficial@gmail.com" style="color: var(--primary-light);">infocashidofficial@gmail.com</a></li>
             <li>Atau melalui saluran bantuan resmi yang tersedia di dalam aplikasi atau situs KantongAjaib.id.</li>
           </ul>
         </article>
@@ -2067,15 +2832,15 @@
       const themeOptions = document.querySelectorAll('.theme-option');
 
       const icons = {
-        system: '💻',
-        dark: '🌙',
-        light: '☀️'
+        system: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
+        dark: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>',
+        light: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line></svg>'
       };
 
       const labels = {
-        system: 'System',
-        dark: 'Dark',
-        light: 'Light'
+        system: 'Sistem',
+        dark: 'Gelap',
+        light: 'Terang'
       };
 
       function getSystemTheme() {
@@ -2086,8 +2851,8 @@
         const activeTheme = theme === 'system' ? getSystemTheme() : theme;
         document.documentElement.setAttribute('data-theme', activeTheme);
         
-        themeIcon.textContent = icons[theme] || '💻';
-        themeLabel.textContent = labels[theme] || 'System';
+        themeIcon.innerHTML = icons[theme] || icons.system;
+        themeLabel.textContent = labels[theme] || 'Sistem';
 
         themeOptions.forEach(opt => {
           if (opt.getAttribute('data-theme-value') === theme) {
@@ -2125,6 +2890,26 @@
           localStorage.setItem('kantong_theme', selected);
           applyTheme(selected);
           themeDropdown.classList.remove('show');
+        });
+      });
+
+      // BILLING TOGGLE (BULANAN / TAHUNAN)
+      const billingButtons = document.querySelectorAll('.billing-option');
+      const billingTargets = document.querySelectorAll('.price-amount[data-billing], .price-period[data-billing], .price-yearly-note[data-billing]');
+
+      billingButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const cycle = btn.getAttribute('data-billing');
+
+          billingButtons.forEach(b => {
+            const isActive = b === btn;
+            b.classList.toggle('active', isActive);
+            b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+
+          billingTargets.forEach(el => {
+            el.hidden = el.getAttribute('data-billing') !== cycle;
+          });
         });
       });
 
@@ -2203,7 +2988,390 @@
           if (privacyModal.classList.contains('active')) closePrivacyModal();
         }
       });
+
+      // MOBILE HAMBURGER MENU CONTROLLER
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+
+      if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isActive = navMenu.classList.toggle('active');
+          mobileToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+          
+          if (isActive) {
+            hamburgerIcon.innerHTML = `
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            `;
+          } else {
+            hamburgerIcon.innerHTML = `
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            `;
+          }
+        });
+
+        // Close menu when clicking nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            if (hamburgerIcon) {
+              hamburgerIcon.innerHTML = `
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              `;
+            }
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+            if (hamburgerIcon) {
+              hamburgerIcon.innerHTML = `
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              `;
+            }
+          }
+        });
+      }
     })();
   </script>
+
+  <!-- HERO SLIDESHOW SCRIPT -->
+  <script>
+    (function() {
+      const slides   = document.querySelectorAll('.hero-slide');
+      const dots     = document.querySelectorAll('.slider-dot');
+      const progress = document.getElementById('sliderProgress');
+      const prevBtn  = document.getElementById('sliderPrev');
+      const nextBtn  = document.getElementById('sliderNext');
+      const slider   = document.getElementById('heroSlider');
+
+      // Floating card elements
+      const icon1  = document.getElementById('floatIcon1');
+      const title1 = document.getElementById('floatTitle1');
+      const desc1  = document.getElementById('floatDesc1');
+      const icon2  = document.getElementById('floatIcon2');
+      const title2 = document.getElementById('floatTitle2');
+      const desc2  = document.getElementById('floatDesc2');
+      const card1  = document.getElementById('floatCard1');
+      const card2  = document.getElementById('floatCard2');
+
+      if (!slides.length) return;
+
+      // Konten floating card per slide
+      const slideCards = [
+        // Slide 1: Pedagang kaki lima
+        { icon1: '🛒', title1: 'Omzet Hari Ini',      desc1: '+ Rp 850.000',
+          icon2: '📊', title2: 'Catat Hasil Dagang',   desc2: 'Mudah & Cepat' },
+        // Slide 2: Karyawan / mahasiswa
+        { icon1: '💵', title1: 'Pengeluaran Bulan Ini', desc1: 'Rp 2.300.000',
+          icon2: '📓', title2: 'Buku Kas Digital',      desc2: 'Teratur & Rapi' },
+        // Slide 3: Pemilik warung
+        { icon1: '🏪', title1: 'Stok & Penjualan',     desc1: 'Tercatat Semua',
+          icon2: '📱', title2: 'Kelola Warung',         desc2: 'Dari Genggaman' },
+        // Slide 4: Wanita catat keuangan
+        { icon1: '💰', title1: 'Pemasukan Penjualan',  desc1: '+ Rp 1.250.000',
+          icon2: '📄', title2: 'e-Invoice & e-Quotation', desc2: 'Dokumen Digital Rapi' },
+        // Slide 5: Ibu rumah tangga
+        { icon1: '🏠', title1: 'Anggaran Bulanan',     desc1: 'Terkontrol',
+          icon2: '💳', title2: 'Utang Piutang',         desc2: 'Pantau dengan Mudah' },
+      ];
+
+      const DURATION = 4000;
+      let current = 0;
+      let timer   = null;
+      let startAt = null;
+      let paused  = false;
+
+      function updateCards(index) {
+        const data = slideCards[index];
+        if (!data || !title1) return;
+
+        // Fade out
+        [card1, card2].forEach(c => c && (c.style.opacity = '0', c.style.transform = 'translateY(6px)'));
+
+        setTimeout(() => {
+          icon1.textContent  = data.icon1;
+          title1.textContent = data.title1;
+          desc1.textContent  = data.desc1;
+          icon2.textContent  = data.icon2;
+          title2.textContent = data.title2;
+          desc2.textContent  = data.desc2;
+          // Fade in
+          [card1, card2].forEach(c => c && (c.style.opacity = '1', c.style.transform = ''));
+        }, 250);
+      }
+
+      function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        updateCards(current);
+      }
+
+      function startProgress() {
+        if (progress) {
+          progress.style.transition = 'none';
+          progress.style.width = '0%';
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              progress.style.transition = `width ${DURATION}ms linear`;
+              progress.style.width = '100%';
+            });
+          });
+        }
+      }
+
+      function next() { goTo(current + 1); startProgress(); }
+
+      function startTimer() {
+        clearInterval(timer);
+        startAt = Date.now();
+        timer = setInterval(next, DURATION);
+        startProgress();
+      }
+
+      function stopTimer() {
+        clearInterval(timer);
+        if (progress) {
+          const pct = ((Date.now() - startAt) / DURATION) * 100;
+          progress.style.transition = 'none';
+          progress.style.width = Math.min(pct, 100) + '%';
+        }
+      }
+
+      // CSS transition untuk fade kartu
+      if (card1) card1.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+      if (card2) card2.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+
+      // Prev / Next buttons
+      prevBtn && prevBtn.addEventListener('click', () => { goTo(current - 1); startTimer(); });
+      nextBtn && nextBtn.addEventListener('click', () => { goTo(current + 1); startTimer(); });
+
+      // Dot click
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.index)); startTimer(); });
+      });
+
+      // Pause on hover
+      slider && slider.addEventListener('mouseenter', () => { paused = true;  stopTimer(); });
+      slider && slider.addEventListener('mouseleave', () => { paused = false; startTimer(); });
+
+      // Touch swipe
+      let touchStartX = 0;
+      slider && slider.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      slider && slider.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { diff > 0 ? goTo(current + 1) : goTo(current - 1); startTimer(); }
+      });
+
+      // Pause when tab hidden
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopTimer();
+        else if (!paused) startTimer();
+      });
+
+      // Init
+      updateCards(0);
+      startTimer();
+    })();
+  </script>
+
+  <!-- SCROLL REVEAL SCRIPT -->
+  <script>
+    (function () {
+      const SELECTORS = [
+        '.target-card',
+        '.feature-card',
+        '.pricing-card',
+        '.about-card',
+        '.cta-banner',
+        '.faq-container details',
+        '.section-header',
+        '.mcp-info-card',
+        '.mcp-terminal',
+        '.hero-stats .stat-item',
+      ];
+
+      function assignRevealClasses() {
+        SELECTORS.forEach(function (selector) {
+          document.querySelectorAll(selector).forEach(function (el, i) {
+            el.classList.add('reveal');
+            var delayIdx = (i % 8) + 1;
+            // Remove old delay classes first
+            for (var d = 1; d <= 8; d++) el.classList.remove('reveal-delay-' + d);
+            el.classList.add('reveal-delay-' + delayIdx);
+          });
+        });
+      }
+
+      var observer;
+
+      function buildObserver() {
+        if (observer) observer.disconnect();
+        observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          observer.observe(el);
+        });
+      }
+
+      // Initial setup
+      assignRevealClasses();
+      buildObserver();
+
+      // Re-trigger animation when nav anchor links are clicked
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          var targetId = link.getAttribute('href').slice(1);
+          var targetSection = document.getElementById(targetId);
+          if (!targetSection) return;
+
+          // Reset visible state on cards inside target section
+          targetSection.querySelectorAll('.reveal').forEach(function (el) {
+            el.classList.remove('visible');
+          });
+
+          // Small delay to let scroll happen, then re-observe
+          setTimeout(function () {
+            targetSection.querySelectorAll('.reveal').forEach(function (el) {
+              observer.observe(el);
+            });
+          }, 350);
+        });
+      });
+    })();
+  </script>
+
+  <!-- FLOATING SCROLL TO TOP BUTTON -->
+  <style>
+    #scroll-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(2, 132, 199, 0.45), 0 0 0 0 rgba(56, 189, 248, 0.4);
+      opacity: 0;
+      transform: translateY(20px) scale(0.85);
+      pointer-events: none;
+      transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1),
+                  transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                  box-shadow 0.3s ease;
+    }
+
+    #scroll-to-top.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    #scroll-to-top:hover {
+      transform: translateY(-4px) scale(1.08);
+      box-shadow: 0 8px 30px rgba(2, 132, 199, 0.6), 0 0 0 6px rgba(56, 189, 248, 0.15);
+    }
+
+    #scroll-to-top:active {
+      transform: translateY(-1px) scale(0.97);
+    }
+
+    /* Pulse ring animation */
+    #scroll-to-top::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: transparent;
+      border: 2px solid rgba(56, 189, 248, 0.5);
+      animation: pulse-ring 2.5s ease-out infinite;
+      opacity: 0;
+    }
+
+    #scroll-to-top.visible::before {
+      opacity: 1;
+    }
+
+    @keyframes pulse-ring {
+      0%   { transform: scale(1);   opacity: 0.6; }
+      70%  { transform: scale(1.55); opacity: 0; }
+      100% { transform: scale(1.55); opacity: 0; }
+    }
+
+    html[data-theme="light"] #scroll-to-top {
+      box-shadow: 0 4px 20px rgba(2, 132, 199, 0.35), 0 0 0 0 rgba(2, 132, 199, 0.3);
+    }
+
+    html[data-theme="light"] #scroll-to-top:hover {
+      box-shadow: 0 8px 30px rgba(2, 132, 199, 0.5), 0 0 0 6px rgba(2, 132, 199, 0.12);
+    }
+
+    @media (max-width: 600px) {
+      #scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+  </style>
+
+  <button id="scroll-to-top" aria-label="Scroll ke atas" title="Kembali ke atas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('scroll-to-top');
+
+      // Tampilkan tombol setelah scroll 300px
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      }, { passive: true });
+
+      // Smooth scroll ke hero section (id="tentang") atau ke paling atas
+      btn.addEventListener('click', function () {
+        var hero = document.getElementById('tentang');
+        if (hero) {
+          hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    })();
+  </script>
+
 </body>
 </html>
